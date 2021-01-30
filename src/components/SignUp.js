@@ -76,12 +76,13 @@ export default function SignUp() {
   return (
     <>
       <Navbar></Navbar>
-      <Card>
-        <h2 className="text-center text-uppercase mt-4">Sign Up</h2>
-        <div className="card-body2">
-        <Card.Body className="w-100 " style={{background:"transparent"}}>
+      <Card >
+      <div className="card-body2">
+        <Card.Body className="w-100" style={{background:"transparent",marginRight:"80%"}}>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit} >
+          <h2 className="text-center text-uppercase mt-4" style={{fontSize:"40px"}}>Sign Up</h2>
+            <br></br>
             <div className="d-flex flex-row" style={{ gap: "20%" }}>
               <div>
                 <Form.Group id="name">
@@ -196,12 +197,13 @@ export default function SignUp() {
               Sign Up
             </Button>
           </Form>
+          <div className="w-100 text-center mt-2">
+        Already have an account ? <Link to="/login">Log In</Link>
+      </div>
         </Card.Body>
         </div>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account ? <Link to="/login">Log In</Link>
-      </div>
+      
     </>
   );
 }
