@@ -8,23 +8,24 @@ import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import LandingPage from "./LandingPage";
-
+import Seller from './Seller';
 function App() {
   return (
-      <div className="w-100">
-        <Router>
-          <AuthProvider>
-            <Switch>
-              <Route exact path="/" component={LandingPage}></Route>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute path="/updateprofile" component={UpdateProfile} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-            </Switch>
-          </AuthProvider>
-        </Router>
-      </div>
+    <div className="w-100">
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <Route exact path="/" component={LandingPage}></Route>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/seller" component={Seller} />
+            <PrivateRoute path="/updateprofile" component={UpdateProfile} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+          </Switch>
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 

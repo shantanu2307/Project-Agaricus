@@ -4,15 +4,15 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 export default function SignUp() {
   const emailRef = useRef();
-  const nameRef=useRef();
-  const typeRef=useRef();
-  const gstRef=useRef();
-  const adhaarRef=useRef();
-  const farmlandRef=useRef();
-  const pincodeRef=useRef();
-  const phoneRef=useRef();
-  const locationRef=useRef();
-  const roleRef=useRef();
+  const nameRef = useRef();
+  const typeRef = useRef();
+  const gstRef = useRef();
+  const adhaarRef = useRef();
+  const farmlandRef = useRef();
+  const pincodeRef = useRef();
+  const phoneRef = useRef();
+  const locationRef = useRef();
+  const roleRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
@@ -21,11 +21,10 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  function changeFarmer(e){
-    if(roleRef.current.value === "Farmer"){
+  function changeFarmer(e) {
+    if (roleRef.current.value === "Farmer") {
       setFarmer(true);
-    }
-    else{
+    } else {
       setFarmer(false);
     }
     console.log(farmer);
@@ -99,7 +98,10 @@ export default function SignUp() {
                 </Form.Group>
                 <Form.Group id="farmlandPics">
                   <Form.Label>Farmland Pics</Form.Label>
-                  <Form.Control type="file" ref={farmlandRef}></Form.Control>
+                  <Form.Control
+                    type="text"
+                    ref={farmlandRef}
+                  ></Form.Control>
                 </Form.Group>
               </div>
             )}
