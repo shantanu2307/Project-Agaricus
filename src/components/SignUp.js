@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './NavBar.js'
+import './signup.css'
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef = useRef();
@@ -77,10 +78,11 @@ export default function SignUp() {
       <Navbar></Navbar>
       <Card>
         <h2 className="text-center text-uppercase mt-4">Sign Up</h2>
-        <Card.Body className="w-100">
+        <div className="card-body2">
+        <Card.Body className="w-100 " style={{background:"transparent"}}>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <div className="d-flex flex-row" style={{ gap: "30%" }}>
+          <Form onSubmit={handleSubmit} >
+            <div className="d-flex flex-row" style={{ gap: "20%" }}>
               <div>
                 <Form.Group id="name">
                   <Form.Label className="font-weight-bold">Name</Form.Label>
@@ -195,6 +197,7 @@ export default function SignUp() {
             </Button>
           </Form>
         </Card.Body>
+        </div>
       </Card>
       <div className="w-100 text-center mt-2">
         Already have an account ? <Link to="/login">Log In</Link>
