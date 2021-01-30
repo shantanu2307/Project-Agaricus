@@ -7,8 +7,8 @@ export default function NavBar() {
     <>
       <Navbar sticky="top" expand="lg" style={{ backgroundColor: "#8a5311" }}>
         <Navbar.Brand>
-          <Link to="/">
-            <span className="navItem">कुकुरमुत्ता</span>
+          <Link to="/" >
+          <span className="navItem">कुकुरमुत्ता</span>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -16,7 +16,7 @@ export default function NavBar() {
           style={{ backgroundColor: "#fffddd" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="">
             <Nav.Link>
               <Link to="/login">
                 <span className="navItem">Login</span>
