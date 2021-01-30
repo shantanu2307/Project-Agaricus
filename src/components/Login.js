@@ -41,8 +41,8 @@ export default function Login() {
     <Navbar></Navbar>
     <div className="rounded">
     <div className="basic">
-      <div id="wrapper">
-        <div id="container" className="rounded">
+      <div id="wrapper"style={{borderRadius:"10px"}}>
+        <div className="container" >
           <div className="row">
             <div className="information-column col-12 col-md-5">
               <div className="content">
