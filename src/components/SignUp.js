@@ -5,6 +5,11 @@ import { Link, useHistory } from "react-router-dom";
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef=useRef();
+  const typeRef=useRef();
+  const gstRef=useRef();
+  const adhaarRef=useRef();
+  const farmlandRef=useRef();
+  const pincodeRef=useRef();
   const phoneRef=useRef();
   const locationRef=useRef();
   const roleRef=useRef();
@@ -23,6 +28,7 @@ export default function SignUp() {
     else{
       setFarmer(false);
     }
+    console.log(farmer);
   }
 
   async function handleSubmit(e) {
@@ -71,11 +77,51 @@ export default function SignUp() {
             </Form.Group>
             <Form.Group>
               <Form.Label>Role</Form.Label>
-              <Form.Control onChange={changeFarmer} ref={roleRef} as="select">
+              <Form.Control
+                onChange={changeFarmer}
+                ref={roleRef}
+                as="select"
+                defaultValue="Farmer"
+              >
                 <option>Farmer</option>
                 <option>Horticulture/Stubble Seller</option>
               </Form.Control>
             </Form.Group>
+            {farmer && (
+              <div>
+                <Form.Group id="pincode">
+                  <Form.Label>Pin Code</Form.Label>
+                  <Form.Control type="text" ref={pincodeRef}></Form.Control>
+                </Form.Group>
+                <Form.Group id="adhaar">
+                  <Form.Label>Adhaar Number</Form.Label>
+                  <Form.Control type="text" ref={adhaarRef}></Form.Control>
+                </Form.Group>
+                <Form.Group id="farmlandPics">
+                  <Form.Label>Farmland Pics</Form.Label>
+                  <Form.Control type="file" ref={farmlandRef}></Form.Control>
+                </Form.Group>
+              </div>
+            )}
+            {!farmer && (
+              <div>
+                <Form.Group id="type">
+                  <Form.Label>Type</Form.Label>
+                  <Form.Control
+                    ref={typeRef}
+                    as="select"
+                    defaultValue="Hoticulture"
+                  >
+                    <option>Horticulture</option>
+                    <option>Stubble Seller</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group id="gst">
+                  <Form.Label>GST Number</Form.Label>
+                  <Form.Control type="text" ref={gstRef}></Form.Control>
+                </Form.Group>
+              </div>
+            )}
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
