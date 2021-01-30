@@ -44,7 +44,7 @@ router.post("/delListing", async(req,res)=>{
   await Listing.findOneAndDelete({uid: seller._id});
   res.send();}
   catch(e)
-  {
+  {res.send(e);
     console.log(e)
   }
 })
