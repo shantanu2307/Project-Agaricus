@@ -1,8 +1,12 @@
 import React from 'react'
 import Navbar from './NavBar'
-import mushFarm from '../assets/mushFarm.jpg'
+import brown from '../assets/brown.jpeg'
 import culture from '../assets/culture.jpg'
-import burn from '../assets/burn.jpg'
+import stubble2 from '../assets/stubble2.jpg'
+import first from '../assets/first.jpg'
+import stubbleburn from '../assets/stubble-burning.jpg'
+import stubblenew from '../assets/stubblenew.jpg'
+import lab from '../assets/lab.jpg'
 import collage from '../assets/collage.png'
 import logo from '../assets/2.png'
 import {Jumbotron,Button, Card,Carousel} from 'react-bootstrap'
@@ -53,14 +57,14 @@ export default function LandingPage() {
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img className="features" src={burn} alt="some pic" /><br></br>
+              <div><img className="features" src={stubble2} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img className="features" src={mushFarm} alt="some pic" /><br></br>
+              <div><img className="features w-100" src={brown} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
@@ -76,35 +80,46 @@ export default function LandingPage() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={burn}
-            alt="First slide"
+            src={first}
+            alt="Via Agaricus"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Via AGARICUS</h3>
+            <p>Neither mushroom comes in animal or plant kingdom, nor the problems faced by mushroom farmers. <br /> In India,it is one of the most profitable agribusinesses that can be started with minimum investment and space. <br /> Mushroom farming in India is growing gradually as an alternative source of income.<br /> It is time to finally bring the much awaited 'Brown revolution' and also fight against pollution.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={burn}
-            alt="Second slide"
+            src={stubbleburn}
+            alt="Burning Stubble"
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
+            <h3>Pollution</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={burn}
-            alt="Third slide"
+            src={stubblenew}
+            alt="Bundles of stubble"
           />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>Earn, Don't Burn!</h3>
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={lab}
+            alt="Lab Inspection"
+          />
+            <Carousel.Caption>
+              <h3>No more frauds!</h3>
+              <p>Products and claims of sellers verified by our experts.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
