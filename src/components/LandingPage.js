@@ -29,12 +29,10 @@ export default function LandingPage() {
             <img className="brown "src={collage} alt="some pic" />
             </div>
             <div className="mFarm">
-              <h1 className="text-center text-uppercase">Mushroom farming</h1>
+              <h1 className="text-center text-uppercase">Via AGARICUS</h1>
               <p className="text-center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                rhoncus mollis accumsan. Nam at dui eget libero consectetur
-                finibus. Interdum et malesuada fames ac ante ipsum primis in
-                faucibus. Vestibulum lobortis eget nisl sit amet sollicitudin.
+              Neither mushroom comes in animal or plant kingdom, nor the problems faced by mushroom farmers. <br /> In India,it is one of the most profitable agribusinesses that can be started with minimum investment and space. <br /> Mushroom farming in India is growing gradually as an alternative source of income.<br /> It is time to finally bring the much awaited 'Brown revolution' and also fight against pollution.<br />
+              <a href="https://www.tribuneindia.com/news/ludhiana/paddy-straw-can-be-used-for-mushroom-cultivation-experts-167794#:~:text=Paddy%20straw%20can%20be%20used%20conveniently%20for%20making%20'mushroom%20growing,for%20the%20production%20of%20mushrooms">Know More</a>
               </p>
             </div>
           </div>
@@ -85,7 +83,7 @@ export default function LandingPage() {
           />
           <Carousel.Caption>
             <h3>Via AGARICUS</h3>
-            <p>Neither mushroom comes in animal or plant kingdom, nor the problems faced by mushroom farmers. <br /> In India,it is one of the most profitable agribusinesses that can be started with minimum investment and space. <br /> Mushroom farming in India is growing gradually as an alternative source of income.<br /> It is time to finally bring the much awaited 'Brown revolution' and also fight against pollution.</p>
+            <p></p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -118,8 +116,8 @@ export default function LandingPage() {
             alt="Lab Inspection"
           />
             <Carousel.Caption>
-              <h3>No more frauds!</h3>
-              <p>Products and claims of sellers verified by our experts.</p>
+              <h3 className="text-danger font-weight-bold">No more frauds!</h3>
+              <p className="text-danger font-weight-bold">Products and claims of sellers verified by our experts.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
