@@ -1,7 +1,10 @@
 import React from 'react'
 import Navbar from './NavBar'
 import mushFarm from '../assets/mushFarm.jpg'
-import {Jumbotron,Button, Card} from 'react-bootstrap'
+import culture from '../assets/culture.jpg'
+import burn from '../assets/burn.jpg'
+import collage from '../assets/collage.png'
+import {Jumbotron,Button, Card,Carousel} from 'react-bootstrap'
 import './landing.css'
 export default function LandingPage() {
   return (
@@ -18,7 +21,7 @@ export default function LandingPage() {
         <Jumbotron >
           <div class="jumbo">
             <div class="img-fluid">
-            <img class="brown "src={mushFarm} alt="some pic" />
+            <img class="brown "src={collage} alt="some pic" />
             </div>
             <div class="mFarm">
               <h1 className="text-center text-uppercase">Mushroom farming</h1>
@@ -32,31 +35,79 @@ export default function LandingPage() {
           </div>
         </Jumbotron>
       </div>
-      
-      {/* Tomorrow */}
-      <div >
-        <Card style={{ backgroundColor: "#fff4c2" }}>
-          <Card.Header style={{ backgroundColor: "#fff4c2", border: "none" }}>
-            <div className="h1 text-uppercase">SPORES/SPAWNS</div>
+      <div>
+        <Card class="cards">
+          <Card.Header class="card-header">
+            <div className="h1 text-uppercase">How we work</div>
           </Card.Header>
-          <Card.Body style={{ backgroundColor: "#fff4c2", border: "none" }}>
+          <Card.Body class="card-body">
             <div
               className="justify-content-center d-flex flex-center flex-md-row"
-              style={{ gap: "50px" }}
+              style={{ gap: "5%" }}
             >
-              <div>Image1</div>
-              <div>Image2</div>
-              <div>Image3</div>
-            </div>
-          </Card.Body>
-          <Card.Footer style={{ backgroundColor: "#fff4c2", border: "none" }}>
-            <div className="text-center">
+              <div><img class="features" src={culture} alt="some pic" /><br></br>
+              <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
-          </Card.Footer>
+              </div>
+              <div><img class="features" src={burn} alt="some pic" /><br></br>
+              <div className="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
+              vulputate magna tortor, sit amet congue lorem efficitur ultrices.
+            </div>
+              </div>
+              <div><img class="features" src={mushFarm} alt="some pic" /><br></br>
+              <div className="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
+              vulputate magna tortor, sit amet congue lorem efficitur ultrices.
+            </div>
+              </div>
+            </div>
+          </Card.Body>
         </Card>
+      </div>
+      <div class="spores">
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={burn}
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={burn}
+            alt="Second slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={burn}
+            alt="Third slide"
+          />
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        
       </div>
     </div>
   );
