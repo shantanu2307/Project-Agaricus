@@ -9,22 +9,24 @@ const farmerSchema = new mongoose.Schema({
     required: true
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: [true, 'Please enter a Phone Number']
   },
   dateOfBirth: {
-    type: Date,
-    required: true
+    type: Date
   },
   location: {
     type: String,
     required: true
   },
-  picLinks: [
+  adhaar:{
+  type: String,
+  required: true
+  },
+  link: 
     {
      type: String
-    }
-  ],
+    },
   isVerified: {
     default: true,
     type: Boolean

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import axios from 'axios'
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef = useRef();
@@ -9,7 +10,6 @@ export default function SignUp() {
   const gstRef = useRef();
   const adhaarRef = useRef();
   const farmlandRef = useRef();
-  const pincodeRef = useRef();
   const phoneRef = useRef();
   const locationRef = useRef();
   const roleRef = useRef();
@@ -40,7 +40,31 @@ export default function SignUp() {
       setLoading(true);
       const x = await signup(emailRef.current.value, passwordRef.current.value);
       console.log("UID", x.user.uid);
-      history.push("/dashboard");
+      if(farmer)
+      {
+        const response=await axios.post("/farmer", {
+          uid: x.user.uid,
+          name: nameRef.current.value,
+          phoneNumber: phoneRef.current.value,
+          location: locationRef.current.value,
+          adhaar: adhaarRef.current.value,
+          link: farmlandRef.current.value,
+        });
+        console.log(response);
+        await history.push("/dashboard");
+      }
+      else{
+        const response = await axios.post("/seller", {
+          uid: x.user.uid,
+          name: nameRef.current.value,
+          phoneNumber: phoneRef.current.value,
+          location: locationRef.current.value,
+          type:typeRef.current.value,
+          gst:gstRef.current.value,
+        });
+        console.log(response);
+        history.push("/seller");
+      }
     } catch {
       setError("Failed to create an account");
     }
@@ -88,10 +112,6 @@ export default function SignUp() {
             </Form.Group>
             {farmer && (
               <div>
-                <Form.Group id="pincode">
-                  <Form.Label>Pin Code</Form.Label>
-                  <Form.Control type="text" ref={pincodeRef}></Form.Control>
-                </Form.Group>
                 <Form.Group id="adhaar">
                   <Form.Label>Adhaar Number</Form.Label>
                   <Form.Control type="text" ref={adhaarRef}></Form.Control>

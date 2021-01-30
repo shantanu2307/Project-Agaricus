@@ -18,6 +18,7 @@ function App() {
             <Route exact path="/" component={LandingPage}></Route>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/seller" component={Seller} />
+            <PrivateRoute exact path="/view-listings" component={Seller} />
             <PrivateRoute path="/updateprofile" component={UpdateProfile} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
