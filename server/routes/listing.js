@@ -38,4 +38,14 @@ router.post("/listings", async (req, res) => {
     console.log(e);
   }
 });
+router.post("/delListing", async(req,res)=>{
+  try{
+  const seller = await Seller.findOne({uid: req.body.uid})
+  await Listing.findOneAndDelete({uid: seller._id});
+  res.send();}
+  catch(e)
+  {
+    console.log(e)
+  }
+})
 module.exports = router;
