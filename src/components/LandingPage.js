@@ -29,7 +29,6 @@ export default function LandingPage() {
           </div>
         </Jumbotron>
       </div>
-      {/* Tomorrow */}
       <div style={{ marginTop: "30%" }}>
         <Card style={{ backgroundColor: "#fff4c2" }}>
           <Card.Header style={{ backgroundColor: "#fff4c2", border: "none" }}>
