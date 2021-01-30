@@ -1,11 +1,30 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {Card, Form,Button} from 'react-bootstrap';
 import {useAuth} from '../contexts/AuthContext'
+import axios from 'axios'
 import Navbar from './SellerNav'
 export default function Seller() {
-  async function handleSubmit(){
-
+  async function handleSubmit(e){
+    e.preventDefault();
+    const response=await axios.post("/listing", {
+      uid:currentUser.uid,
+      sellerName: nameRef.current.value,
+      certificate: certRef.current.value,
+      pincode: pincodeRef.current.value,
+      description: descriptionRef.current.value,
+      state:stateRef.current.value,
+      district:districtRef.current.value,
+      pics:picRef.current.value,
+    });
+    console.log(response);
   }
+  const nameRef=useRef();
+  const stateRef=useRef();
+  const descriptionRef=useRef();
+  const pincodeRef=useRef();
+  const districtRef=useRef();
+  const certRef=useRef();
+  const picRef=useRef();
   const {currentUser}=useAuth();
   return (
     <div>
@@ -25,11 +44,27 @@ export default function Seller() {
           <Form onSubmit={handleSubmit}>
             <Form.Group id="name">
               <Form.Label className="font-weight-bold">Person Name</Form.Label>
-              <Form.Control type="text" required></Form.Control>
+              <Form.Control type="text" ref={nameRef} required></Form.Control>
+            </Form.Group>
+            <Form.Group id="state">
+              <Form.Label className="font-weight-bold">State</Form.Label>
+              <Form.Control type="text" ref={stateRef} required></Form.Control>
+            </Form.Group>
+            <Form.Group id="state">
+              <Form.Label className="font-weight-bold">District</Form.Label>
+              <Form.Control type="text" ref={districtRef} required></Form.Control>
+            </Form.Group>
+            <Form.Group id="state">
+              <Form.Label className="font-weight-bold">Pincode</Form.Label>
+              <Form.Control type="text" ref={pincodeRef} required></Form.Control>
             </Form.Group>
             <Form.Group id="description">
               <Form.Label className="font-weight-bold">Description</Form.Label>
-              <Form.Control type="text" required></Form.Control>
+              <Form.Control
+                type="text"
+                ref={descriptionRef}
+                required
+              ></Form.Control>
             </Form.Group>
             <Form.Group id="certification">
               <Form.Label className="font-weight-bold">
@@ -41,7 +76,7 @@ export default function Seller() {
                   Add Google Drive Link
                 </em>
               </div>
-              <Form.Control type="text" required></Form.Control>
+              <Form.Control ref={certRef} type="text" required></Form.Control>
             </Form.Group>
             <Form.Group id="certification">
               <Form.Label className="font-weight-bold">Pictures</Form.Label>
@@ -51,7 +86,7 @@ export default function Seller() {
                   Add Google Drive Link
                 </em>
               </div>
-              <Form.Control type="text" required></Form.Control>
+              <Form.Control ref={picRef} type="text" required></Form.Control>
             </Form.Group>
             <Button className="w-20" type="submit">
               Submit

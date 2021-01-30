@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const farmerRoute = require("./server/routes/farmer");
-const sellerRoute = require("./server/routes/seller")
+const sellerRoute = require("./server/routes/seller");
+const listingRoute = require("./server/routes/listing");
 require("dotenv").config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 app.use(farmerRoute);
 app.use(sellerRoute);
+app.use(listingRoute);
 app.use(cors());
 
 mongoose.connect(uri, {

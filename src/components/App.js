@@ -9,6 +9,7 @@ import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import LandingPage from "./LandingPage";
 import Seller from './Seller';
+import SellerView from './SellerView'
 function App() {
   return (
     <div className="w-100">
@@ -18,7 +19,7 @@ function App() {
             <Route exact path="/" component={LandingPage}></Route>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/seller" component={Seller} />
-            <PrivateRoute exact path="/view-listings" component={Seller} />
+            <PrivateRoute exact path="/view-listings" component={SellerView} />
             <PrivateRoute path="/updateprofile" component={UpdateProfile} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />

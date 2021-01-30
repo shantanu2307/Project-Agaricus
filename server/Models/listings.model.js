@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 const listingSchema = new mongoose.Schema({
-  itemType: {
-    type: String,
-    required: true
- },
-  sellerId: {
+  uid: {
     type: mongoose.Schema.Types.ObjectId,
     ref :'Seller' ,
     required: true
@@ -13,22 +9,28 @@ const listingSchema = new mongoose.Schema({
   type: String,
   required: true
   },
-  quantity:{
-  type: Number,
-  required: true,
-  default: 0
+  state:{
+    type: String,
+    required: true
   },
-  price:{
-  type: Number,
-  required: true,
-  },
-  pics:[{
+  district:{
   type: String,
-  data: Buffer
-  }],
+  required: true
+  },
+  pincode:{
+  type: String,
+  required: true
+  },
+  pics: {
+  type: String,
+  
+  },
+  certificate: {
+  type: String
+  },
   details:{
-      type: String,
-      required: false
+    type: String,
+    required: false
   }
  
 }, {
