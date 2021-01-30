@@ -11,7 +11,7 @@ export default function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          style={{ backgroundColor: "white" }}
+          style={{ backgroundColor: "#fffddd" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

@@ -1,0 +1,57 @@
+.head
+{
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+    color:white;
+}
+.top{
+    display:flex;
+    height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../assets/bunch.jpg);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    font-family: "Lato", sans-serif;
+    line-height: 1.7;
+    margin-bottom: 60px;
+    font-weight: 500;
+    font-size: 25px;
+  }
+  .heading-primary-main {
+    display: block;
+    font-size: 75px;
+    font-weight: 900;
+    letter-spacing: 35px;
+  }
+  .div2{
+    margin:0;
+    padding:0;
+  }
+  .jumbo{
+      display:flex;
+      justify-content: center;
+      background:#f5f5ef;
+  }
+  .mFarm{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background:#f5f5ef;
+      padding-left: 1rem;
+  }
+  .brown{
+      height:20rem;
+      width:auto;
+  }
+  
