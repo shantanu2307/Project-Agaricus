@@ -31,6 +31,10 @@ const listingSchema = new mongoose.Schema({
   details:{
     type: String,
     required: false
+  },
+  isVerficied:{
+    type: Boolean,
+    default: true
   }
  
 }, {
