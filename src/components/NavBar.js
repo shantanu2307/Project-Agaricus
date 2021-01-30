@@ -7,7 +7,9 @@ export default function NavBar() {
     <>
       <Navbar sticky="top" expand="lg" style={{ backgroundColor: "#8a5311" }}>
         <Navbar.Brand>
-          <span className="navItem">कुकुरमुत्ता</span>
+          <Link to="/">
+            <span className="navItem">कुकुरमुत्ता</span>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"

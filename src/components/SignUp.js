@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios'
+import Navbar from './NavBar.js'
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef = useRef();
@@ -73,6 +74,7 @@ export default function SignUp() {
 
   return (
     <>
+      <Navbar></Navbar>
       <Card>
         <h2 className="text-center text-uppercase mt-4">Sign Up</h2>
         <Card.Body className="w-100">

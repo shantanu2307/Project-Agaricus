@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Navbar from './NavBar'
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
@@ -37,6 +38,7 @@ export default function Login() {
 
   return (
     <>
+    <Navbar></Navbar>
     <div className="rounded">
     <div className="basic">
       <div id="wrapper">

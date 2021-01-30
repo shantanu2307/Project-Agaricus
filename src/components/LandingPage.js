@@ -13,7 +13,7 @@ export default function LandingPage() {
       <Navbar />
       <div className="top">
         <div className="head">
-          <div className="text-center h1 text-uppercase heading-primary-main">Operation Agaricus</div>
+          <div className="text-center h1 text-uppercase heading-primary-main ml-5">Operation Agaricus</div>
           <div className="text-center text-uppercase heading-primary">Brown Revolution</div>
         </div>
       </div>
