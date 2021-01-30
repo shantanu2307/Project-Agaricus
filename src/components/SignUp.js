@@ -4,12 +4,27 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 export default function SignUp() {
   const emailRef = useRef();
+  const nameRef=useRef();
+  const phoneRef=useRef();
+  const locationRef=useRef();
+  const roleRef=useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
+  const [farmer, setFarmer] = useState(true);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  function changeFarmer(e){
+    if(roleRef.current.value === "Farmer"){
+      setFarmer(true);
+    }
+    else{
+      setFarmer(false);
+    }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -34,9 +49,32 @@ export default function SignUp() {
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" ref={nameRef} required></Form.Control>
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required></Form.Control>
+            </Form.Group>
+            <Form.Group id="phone">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control type="text" ref={phoneRef} required></Form.Control>
+            </Form.Group>
+            <Form.Group id="address">
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                ref={locationRef}
+                required
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Role</Form.Label>
+              <Form.Control onChange={changeFarmer} ref={roleRef} as="select">
+                <option>Farmer</option>
+                <option>Horticulture/Stubble Seller</option>
+              </Form.Control>
             </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
