@@ -14,7 +14,7 @@ export default function LandingPage() {
       <Navbar />
       <div className="top">
         <div className="head" >
-          <div className="text-center h1 text-uppercase heading-primary-main ml-9"><img src={logo} style={{ width: "auto", height:"200px",borderRadius:"50%" }}></img><br></br> Operation Agaricus</div>
+          <div className="text-center h1 text-uppercase heading-primary-main ml-5 mt-5"><img src={logo} alt="logo" style={{ width: "auto", height:"200px",borderRadius:"50%" }}></img><br></br> Operation Agaricus</div>
           <div className="text-center text-uppercase heading-primary">The unexplored territory</div>
         </div>
       </div>

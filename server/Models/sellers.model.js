@@ -16,8 +16,7 @@ const sellerSchema = new mongoose.Schema({
     type: Date
   },
   location: {
-    type: String,
-    required: true
+    type: String
   },
   type:{
   type: String,
