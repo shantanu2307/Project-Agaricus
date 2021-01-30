@@ -37,44 +37,58 @@ export default function UpdateProfile() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Update Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                ref={emailRef}
-                defaultValue={currentUser.email}
-                required
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordRef}
-                placeholder="Leave blank to keep the same"
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordConfirmRef}
-                placeholder="Leave blank to keep the same"
-              ></Form.Control>
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Update Profile
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        <Link to="/dashboard">Cancel</Link>
+
+      <div className="rounded">
+        <div className="basic">
+          <div id="wrapper" style={{ borderRadius: "10px" }}>
+            <div className="container" >
+              <div className="row">
+                <div className="information-columnUpdate col-12 col-md-5">
+                  <div className="content">
+
+                  </div>
+                </div>
+                <div className="form-column col-12 col-md-7" >
+                  <h2 className="text-center mb-4">Update Profile</h2>
+                  {error && <Alert variant="danger">{error}</Alert>}
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Group id="email">
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type="email"
+                        ref={emailRef}
+                        defaultValue={currentUser.email}
+                        required
+                      ></Form.Control>
+                    </Form.Group>
+                    <Form.Group id="password">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        ref={passwordRef}
+                        placeholder="Leave blank to keep the same"
+                      ></Form.Control>
+                    </Form.Group>
+                    <Form.Group id="password-confirm">
+                      <Form.Label>Confirm Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        ref={passwordConfirmRef}
+                        placeholder="Leave blank to keep the same"
+                      ></Form.Control>
+                    </Form.Group>
+                    <Button disabled={loading} className="w-100" type="submit">
+                      Update Profile
+                    </Button>
+                  </Form>
+                  <div className="w-100 text-center mt-2 " id="cancel">
+                    <Link to="/dashboard">Cancel</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

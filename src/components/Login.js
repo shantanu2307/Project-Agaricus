@@ -44,7 +44,7 @@ export default function Login() {
       <div id="wrapper"style={{borderRadius:"10px"}}>
         <div className="container" >
           <div className="row">
-            <div className="information-column col-12 col-md-5">
+            <div className="information-columnLogin col-12 col-md-5">
               <div className="content">
                 
               </div>
