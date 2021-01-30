@@ -74,92 +74,120 @@ export default function SignUp() {
   return (
     <>
       <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+        <h2 className="text-center text-uppercase mt-4">Sign Up</h2>
+        <Card.Body className="w-100">
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" ref={nameRef} required></Form.Control>
-            </Form.Group>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required></Form.Control>
-            </Form.Group>
-            <Form.Group id="phone">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control type="text" ref={phoneRef} required></Form.Control>
-            </Form.Group>
-            <Form.Group id="address">
-              <Form.Label>Location</Form.Label>
-              <Form.Control
-                type="text"
-                ref={locationRef}
-                required
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Role</Form.Label>
-              <Form.Control
-                onChange={changeFarmer}
-                ref={roleRef}
-                as="select"
-                defaultValue="Farmer"
-              >
-                <option>Farmer</option>
-                <option>Horticulture/Stubble Seller</option>
-              </Form.Control>
-            </Form.Group>
-            {farmer && (
+            <div className="d-flex flex-row" style={{ gap: "30%" }}>
               <div>
-                <Form.Group id="adhaar">
-                  <Form.Label>Adhaar Number</Form.Label>
-                  <Form.Control type="text" ref={adhaarRef}></Form.Control>
-                </Form.Group>
-                <Form.Group id="farmlandPics">
-                  <Form.Label>Farmland Pics</Form.Label>
+                <Form.Group id="name">
+                  <Form.Label className="font-weight-bold">Name</Form.Label>
                   <Form.Control
                     type="text"
-                    ref={farmlandRef}
+                    ref={nameRef}
+                    required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group id="email">
+                  <Form.Label className="font-weight-bold">Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    ref={emailRef}
+                    required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group id="phone">
+                  <Form.Label className="font-weight-bold">
+                    Phone Number
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={phoneRef}
+                    required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group id="address">
+                  <Form.Label className="font-weight-bold">Location</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={locationRef}
+                    required
                   ></Form.Control>
                 </Form.Group>
               </div>
-            )}
-            {!farmer && (
               <div>
-                <Form.Group id="type">
-                  <Form.Label>Type</Form.Label>
+                <Form.Group>
+                  <Form.Label className="font-weight-bold">Role</Form.Label>
                   <Form.Control
-                    ref={typeRef}
+                    onChange={changeFarmer}
+                    ref={roleRef}
                     as="select"
-                    defaultValue="Hoticulture"
+                    defaultValue="Farmer"
                   >
-                    <option>Horticulture</option>
-                    <option>Stubble Seller</option>
+                    <option>Farmer</option>
+                    <option>Horticulture/Stubble Seller</option>
                   </Form.Control>
                 </Form.Group>
-                <Form.Group id="gst">
-                  <Form.Label>GST Number</Form.Label>
-                  <Form.Control type="text" ref={gstRef}></Form.Control>
+                {farmer && (
+                  <div>
+                    <Form.Group id="adhaar">
+                      <Form.Label className="font-weight-bold">
+                        Adhaar Number
+                      </Form.Label>
+                      <Form.Control type="text" ref={adhaarRef}></Form.Control>
+                    </Form.Group>
+                    <Form.Group id="farmlandPics">
+                      <Form.Label className="font-weight-bold">
+                        Farmland Pics
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        ref={farmlandRef}
+                      ></Form.Control>
+                    </Form.Group>
+                  </div>
+                )}
+                {!farmer && (
+                  <div>
+                    <Form.Group id="type">
+                      <Form.Label className="font-weight-bold">Type</Form.Label>
+                      <Form.Control
+                        ref={typeRef}
+                        as="select"
+                        defaultValue="Hoticulture"
+                      >
+                        <option>Horticulture</option>
+                        <option>Stubble Seller</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group id="gst">
+                      <Form.Label className="font-weight-bold">
+                        GST Number
+                      </Form.Label>
+                      <Form.Control type="text" ref={gstRef}></Form.Control>
+                    </Form.Group>
+                  </div>
+                )}
+                <Form.Group id="password">
+                  <Form.Label className="font-weight-bold">Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    ref={passwordRef}
+                    required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group id="password-confirm">
+                  <Form.Label className="font-weight-bold">
+                    Confirm Password
+                  </Form.Label>
+                  <Form.Control
+                    type="password"
+                    ref={passwordConfirmRef}
+                    required
+                  ></Form.Control>
                 </Form.Group>
               </div>
-            )}
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordRef}
-                required
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordConfirmRef}
-                required
-              ></Form.Control>
-            </Form.Group>
+            </div>
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
             </Button>

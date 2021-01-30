@@ -11,19 +11,19 @@ export default function LandingPage() {
     //set photo of background
     <div className="w-100 align-content-center justify-content-center">
       <Navbar />
-      <div class="top">
-        <div class="head" >
+      <div className="top">
+        <div className="head">
           <div className="text-center h1 text-uppercase heading-primary-main">Operation Agaricus</div>
           <div className="text-center text-uppercase heading-primary">Brown Revolution</div>
         </div>
       </div>
-      <div class="div2" >
+      <div className="div2" >
         <Jumbotron >
-          <div class="jumbo">
-            <div class="img-fluid">
-            <img class="brown "src={collage} alt="some pic" />
+          <div className="jumbo">
+            <div className="img-fluid">
+            <img className="brown "src={collage} alt="some pic" />
             </div>
-            <div class="mFarm">
+            <div className="mFarm">
               <h1 className="text-center text-uppercase">Mushroom farming</h1>
               <p className="text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
@@ -36,30 +36,30 @@ export default function LandingPage() {
         </Jumbotron>
       </div>
       <div>
-        <Card class="cards">
-          <Card.Header class="card-header">
+        <Card className="cards">
+          <Card.Header className="card-header">
             <div className="h1 text-uppercase">How we work</div>
           </Card.Header>
-          <Card.Body class="card-body">
+          <Card.Body className="card-body">
             <div
               className="justify-content-center d-flex flex-center flex-md-row"
               style={{ gap: "5%" }}
             >
-              <div><img class="features" src={culture} alt="some pic" /><br></br>
+              <div><img className="features" src={culture} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img class="features" src={burn} alt="some pic" /><br></br>
+              <div><img className="features" src={burn} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img class="features" src={mushFarm} alt="some pic" /><br></br>
+              <div><img className="features" src={mushFarm} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
@@ -70,7 +70,7 @@ export default function LandingPage() {
           </Card.Body>
         </Card>
       </div>
-      <div class="spores">
+      <div className="spores">
       <Carousel>
         <Carousel.Item>
           <img
@@ -107,7 +107,6 @@ export default function LandingPage() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        
       </div>
     </div>
   );

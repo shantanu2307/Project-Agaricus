@@ -22,7 +22,7 @@ export default function NavBar() {
             </Nav.Link>
             <Nav.Link>
               <Link to="/signup">
-                <span className="navItem">SignUp</span>
+                <span className="navItem">Sign Up</span>
               </Link>
             </Nav.Link>
           </Nav>

@@ -37,17 +37,17 @@ export default function Login() {
 
   return (
     <>
-    <div>
+    <div className="rounded">
     <div className="basic">
       <div id="wrapper">
-        <div id="container">
+        <div id="container" className="rounded">
           <div className="row">
-            <div class="information-column col-12 col-md-5">
-              <div class="content">
+            <div className="information-column col-12 col-md-5">
+              <div className="content">
                 
               </div>
             </div>
-            <div class="form-column col-12 col-md-7" >
+            <div className="form-column col-12 col-md-7" >
             <h1 className="mb-lg-5">Login</h1>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
