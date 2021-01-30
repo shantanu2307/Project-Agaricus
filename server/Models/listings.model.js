@@ -32,7 +32,7 @@ const listingSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  isVerficied:{
+  isVerified:{
     type: Boolean,
     default: true
   }
