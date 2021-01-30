@@ -15,8 +15,7 @@ export default function SellerView() {
   async function handleSubmit2() {
     const uid = currentUser.uid;
     const response = await axios.post("/delListing", {
-      uid: uid,
-    console.log(response);
+      uid: uid
   }
   const {currentUser}=useAuth();
   const [resp,setResp]=useState();
