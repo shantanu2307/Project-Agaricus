@@ -1,14 +1,21 @@
-import React, {useState,useRef} from 'react'
+import React, {useState,useRef,useEffect} from 'react'
 import {Card, Form,Button} from 'react-bootstrap';
 import {useAuth} from '../contexts/AuthContext'
 import Navbar from './SellerNav'
+import axios from 'axios'
 export default function Seller() {
   async function handleSubmit(){
 
   }
+  async function handleGet() {
+    const response=await axios.get('seller-details',{
+      uid:currentUser.uid
+    })
+    console.log(response);
+  }
   const {currentUser}=useAuth();
   return (
-    <div>
+    <div onLoad={handleGet}>
       <Navbar />
       <div className="h1 text-center mt-lg-3">Welcome {currentUser.email}!</div>
       <Card>
@@ -26,17 +33,17 @@ export default function Seller() {
             <Form.Group id="certification">
               <Form.Label className="font-weight-bold">Certification</Form.Label>
               <br></br>
-              <quote>
+              <div>
                 <em>Add Google Drive Link</em>
-              </quote>
+              </div>
               <Form.Control type="text" required></Form.Control>
             </Form.Group>
             <Form.Group id="certification">
               <Form.Label className="font-weight-bold">Pictures</Form.Label>
               <br></br>
-              <quote>
+              <div>
                 <em>Add Google Drive Link</em>
-              </quote>
+              </div>
               <Form.Control type="text" required></Form.Control>
             </Form.Group>
             <Button className="w-20" type="submit">

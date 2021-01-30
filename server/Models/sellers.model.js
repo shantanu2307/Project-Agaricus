@@ -13,8 +13,7 @@ const sellerSchema = new mongoose.Schema({
     required: [true, 'Please enter a Phone Number']
   },
   dateOfBirth: {
-    type: Date,
-    required: true
+    type: Date
   },
   location: {
     type: String,
@@ -23,7 +22,7 @@ const sellerSchema = new mongoose.Schema({
   type:{
   type: String,
   required: true,
-  enum:[Spores, Stubble]
+  enum:["Horticulture", "Stubble Seller"]
   },
   gst:{
   type: String,

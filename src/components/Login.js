@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import axios from 'axios';
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -14,8 +15,19 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/dashboard");
+      const user=await login(emailRef.current.value, passwordRef.current.value);
+      const uid=user.user.uid;
+      const response=await axios.get('/role',{
+        uid:uid
+      });
+      console.log(response);
+      const role=response.data.role
+      if(role==="farmer")
+      {
+        history.push('/dashboard');
+      }else if (role==="seller"){
+        history.push('/seller');
+      }
     } catch {
       setError("Failed to Sign In");
     }

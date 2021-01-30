@@ -3,7 +3,8 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const userRoute = require("./server/routes/farmer");
+const farmerRoute = require("./server/routes/farmer");
+const sellerRoute = require("./server/routes/seller")
 require("dotenv").config();
 
 const app = express();
@@ -13,7 +14,8 @@ const port = 8080;
 app.use(morgan("tiny"));
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
-app.use(userRoute);
+app.use(farmerRoute);
+app.use(sellerRoute);
 app.use(cors());
 
 mongoose.connect(uri, {
