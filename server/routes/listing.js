@@ -30,7 +30,7 @@ router.get("/listing", async(req,res)=>{
     {const listing = await Listing.findOne({uid:seller._id})
     res.send(listing);}
     else{
-        res.send({}
+        res.send({sellerName: "false"});
     }
 
     }
