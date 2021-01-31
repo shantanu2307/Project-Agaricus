@@ -38,57 +38,9 @@ export default function LandingPage() {
           </div>
         </Jumbotron>
       </div>
-      <div>
-        <Card className="cards">
-          <Card.Header className="card-header">
-            <div className="h1 text-uppercase">How we work</div>
-          </Card.Header>
-          <Card.Body className="card2">
-            <div
-              className="row"
-            >
-              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={howlab} alt="Lab Verification" /><br></br>
-              <div className="text-center">
-              Which standard should industry and entrepreneurs abide by in production of spawns?
-              There are reports of spawn units cheating farmers by supplying inferior spawns and spores cultures.
-              <br />
-              Buy from sellers verified by our experts.
-            </div>
-              </div>
-              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={stubble2} alt="Stubble" /><br></br>
-              <div className="text-center">
-              Despite a ban on paddy stubble burning, farmers dispose of paddy straw by setting it afire.
-              Paddy straw can be used conveniently for 'mushroom cultivation' and making ‘mushroom growing houses’.
-              <br />
-              Connecting stubble sellers and mushroom cultivators.
-            </div>
-              </div>
-              <div className="pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={price} alt="Uncertain prices" /><br></br>
-              <div className="text-center">
-              Many predict that mushrooms are the next high value agriculture crop which can transform incomes of small and marginal farmers.
-              The mushrooms sector is unregulated. Hence the uncertainity in prices.
-              <br />
-              Check out the predicted prices so that you can decide how much!
-            </div>
-              </div>
-            </div>
-          </Card.Body>
-        </Card>
-      </div>
       <div className="carousel-outer">
       <div className="spores container">
       <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={first}
-            alt="Via Agaricus"
-          />
-          <Carousel.Caption>
-            <h3>Via AGARICUS</h3>
-            <p></p>
-          </Carousel.Caption>
-        </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -125,6 +77,43 @@ export default function LandingPage() {
           </Carousel.Item>
         </Carousel>
       </div>
+      </div>
+      <div>
+        <Card className="cards">
+          <Card.Header className="card-header">
+            <div className="h1 text-uppercase">How we work</div>
+          </Card.Header>
+          <Card.Body className="card2">
+            <div
+              className="row"
+            >
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={howlab} alt="Lab Verification" /><br></br>
+              <div className="text-center">
+              Which standard should industry and entrepreneurs abide by in production of spawns?
+              There are reports of spawn units cheating farmers by supplying inferior spawns and spores cultures.
+              <br />
+              Buy from sellers verified by our experts.
+            </div>
+              </div>
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={stubble2} alt="Stubble" /><br></br>
+              <div className="text-center">
+              Despite a ban on paddy stubble burning, farmers dispose of paddy straw by setting it afire.
+              Paddy straw can be used conveniently for 'mushroom cultivation' and making ‘mushroom growing houses’.
+              <br />
+              Connecting stubble sellers and mushroom cultivators.
+            </div>
+              </div>
+              <div className="pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={price} alt="Uncertain prices" /><br></br>
+              <div className="text-center">
+              Many predict that mushrooms are the next high value agriculture crop which can transform incomes of small and marginal farmers.
+              The mushrooms sector is unregulated. Hence the uncertainity in prices.
+              <br />
+              Check out the predicted prices so that you can decide how much!
+            </div>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
       </div>
     </div>
   );
