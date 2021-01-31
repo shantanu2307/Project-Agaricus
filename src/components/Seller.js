@@ -11,7 +11,7 @@ export default function Seller() {
       sellerName: nameRef.current.value,
       certificate: certRef.current.value,
       pincode: pincodeRef.current.value,
-      description: descriptionRef.current.value,
+      details: descriptionRef.current.value,
       state:stateRef.current.value,
       district:districtRef.current.value,
       pics:picRef.current.value,

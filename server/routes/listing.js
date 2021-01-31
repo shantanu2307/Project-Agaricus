@@ -9,7 +9,7 @@ router.post("/listing", async (req, res) => {
       uid: seller._id,
       district: req.body.district,
       state: req.body.state,
-      description: req.body.description,
+      details: req.body.details,
       pincode: req.body.pincode,
       sellerName: seller.name,
       certificate: req.body.certificate,
