@@ -5,7 +5,6 @@ import axios from "axios";
 import Navbar from './FarmerNavBar'
 export default function Dashboard() {
   const { currentUser } = useAuth();
-  const [listingArray,setListingArray]=useState("");
   async function handleSubmit(e){
     e.preventDefault();
     const details = await axios.get("https://api.postalpincode.in/pincode/"+pincodeRef.current.value);

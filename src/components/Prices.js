@@ -26,7 +26,7 @@ export default function Prices() {
       date:dateRef.current.value
     });
     console.log(response.data);
-    setPrice(<span>{response.data.item.replaceAll("{","").replaceAll("}","")}</span>)
+    setPrice(<span>{response.data.item.replaceAll("[","").replaceAll("]","")}</span>)
     setLoading(true);
   }
 
