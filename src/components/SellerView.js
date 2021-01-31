@@ -7,6 +7,12 @@ export default function SellerView() {
   async function handleSubmit() {
     const uid = currentUser.uid;
     const response = await axios.post("/listings", {
+      headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST",
+        "Access-Control-Allow-Headers": "application/json",
+      },
       uid: uid,
     });
     console.log(response);
@@ -16,7 +22,13 @@ export default function SellerView() {
       setResp(x);
     }
     else{
-      const x = (
+        var org=response.data.pics;
+        var res1 = org.replace("https://drive.google.com/file/d/","");
+        var res2=res1.replace("/view?usp=sharing","");
+        const z =
+          "https://drive.google.com/thumbnail?id="+res2;
+        console.log(z);
+        const x = (
         <Card>
           <Card.Header className="h1 font-weight-bold text-center">
             Listing
@@ -25,7 +37,7 @@ export default function SellerView() {
             <div>
               <img
                 src={
-                  response.data.pics
+                  z
                 }
                 alt="SomeImg"
                 style={{width:"300px",height:"200px"}}
