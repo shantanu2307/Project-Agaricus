@@ -1,8 +1,8 @@
 # Required Installations
-### 'python, pandas, keras, numpy, tensorflow, h5py, npm'
+### `python, pandas, keras, numpy, tensorflow, h5py, npm`
 
 # Process
-### 'Run npm i first to install all the required node modules'
+### `Run npm i first to install all the required node modules`
 
 # To run frontend
 ### `npm start`
