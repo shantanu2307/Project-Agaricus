@@ -22,9 +22,11 @@ router.get("/farmer", async (req, res)=>{
   }
 });
 
-router.get("/role", async(req,res) =>{
+router.post("/role", async(req,res) =>{
   try{
+  console.log(req.body);
   const farmer = await Farmer.find({uid:req.body.uid});
+  console.log(farmer);
   if(farmer.length!==0)
   {console.log(farmer);
    res.send({"role":"farmer"});
