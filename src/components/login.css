@@ -19,7 +19,7 @@
     max-width: 80rem;
   }
   
-  .container {
+  #container {
     width: 85%;
     height: 40rem;
     margin: 0 auto;

@@ -9,7 +9,7 @@ import stubblenew from '../assets/stubblenew.jpg'
 import lab from '../assets/lab.jpg'
 import collage from '../assets/collage.png'
 import logo from '../assets/2.png'
-import {Jumbotron,Button, Card,Carousel} from 'react-bootstrap'
+import {Jumbotron, Card,Carousel} from 'react-bootstrap'
 import './landing.css'
 export default function LandingPage() {
   return (
@@ -43,26 +43,25 @@ export default function LandingPage() {
           <Card.Header className="card-header">
             <div className="h1 text-uppercase">How we work</div>
           </Card.Header>
-          <Card.Body className="card-body">
+          <Card.Body className="card2">
             <div
-              className="justify-content-center d-flex flex-center flex-md-row"
-              style={{ gap: "5%" }}
+              className="row"
             >
-              <div><img className="features" src={culture} alt="some pic" /><br></br>
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={culture} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img className="features" src={stubble2} alt="some pic" /><br></br>
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={stubble2} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
               vulputate magna tortor, sit amet congue lorem efficitur ultrices.
             </div>
               </div>
-              <div><img className="features w-100" src={brown} alt="some pic" /><br></br>
+              <div className="pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={brown} alt="some pic" /><br></br>
               <div className="text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
@@ -73,7 +72,8 @@ export default function LandingPage() {
           </Card.Body>
         </Card>
       </div>
-      <div className="spores">
+      <div className="carousel-outer">
+      <div className="spores container">
       <Carousel>
         <Carousel.Item>
           <img
@@ -121,6 +121,7 @@ export default function LandingPage() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+      </div>
       </div>
     </div>
   );

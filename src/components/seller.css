@@ -1,0 +1,13 @@
+.seller{
+    background-image: url("../assets/sellerba.jpg");
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border:none;
+    background-size: cover;
+}
+.region{
+    width:90%;
+}

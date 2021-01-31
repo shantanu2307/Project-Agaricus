@@ -82,6 +82,7 @@ export default function SignUp() {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit} >
           <h2 className="text-center text-uppercase mt-4" style={{fontSize:"40px"}}>Sign Up</h2>
+          <hr style={{borderTop:"1px solid white"}}></hr>
             <br></br>
             <div className="d-flex flex-row" style={{ gap: "20%" }}>
               <div>
@@ -193,7 +194,7 @@ export default function SignUp() {
                 </Form.Group>
               </div>
             </div>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100" type="submit"style={{fontSize:"20px"}}>
               Sign Up
             </Button>
           </Form>
