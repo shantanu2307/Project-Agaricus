@@ -48,22 +48,28 @@ export default function Prices() {
           </Alert>
         )}
         <Card.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="type">
-              <Form.Label className="font-weight-bold">Market:</Form.Label>
-              <Form.Control ref={typeRef} as="select">
-                {dp}
-              </Form.Control>
-            </Form.Group>
-            <Form.Group id="date">
-              <Form.Label className="font-weight-bold">Future Date:</Form.Label>
-              <Form.Control ref={dateRef} type="date" required />
-            </Form.Group>
-            <Button type="submit">Submit</Button>
-          </Form>
+          <div className="d-flex justify-content-center">
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="type">
+                <Form.Label className="font-weight-bold">Market:</Form.Label>
+                <Form.Control ref={typeRef} as="select">
+                  {dp}
+                </Form.Control>
+              </Form.Group>
+              <Form.Group id="date">
+                <Form.Label className="font-weight-bold">
+                  Future Date:
+                </Form.Label>
+                <Form.Control ref={dateRef} type="date" required />
+              </Form.Group>
+              <div className="d-flex justify-content-center">
+                <Button type="submit" className="w-100">Submit</Button>
+              </div>
+            </Form>
+          </div>
         </Card.Body>
       </Card>
-      <div className="w-100" style={{position:"absolute",bottom:"0"}}>
+      <div className="w-100" style={{ position: "absolute", bottom: "0",maxHeight:"200px" }}>
         <Footer />
       </div>
     </div>
