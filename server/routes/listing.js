@@ -38,14 +38,20 @@ router.post("/listings", async (req, res) => {
     console.log(e);
   }
 });
-router.post("/delListing", async(req,res)=>{
-  try{
-  const seller = await Seller.findOne({uid: req.body.uid})
-  await Listing.findOneAndDelete({uid: seller._id});
-  res.send();}
-  catch(e)
-  {res.send(e);
-    console.log(e)
+router.post("/delListing", async (req, res) => {
+  try {
+    const seller = await Seller.findOne({ uid: req.body.uid });
+    const listing = await Listing.findOneAndDelete({ uid: seller._id });
+    if (listing!=null) {
+      console.log(listing);
+      res.send({ flag: true });
+    }
+    else{
+      res.send({flag:false});
+    }
+  } catch (e) {
+    console.log(e);
+    res.send(e);
   }
-})
+});
 module.exports = router;

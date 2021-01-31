@@ -63,12 +63,24 @@ export default function SellerView() {
     const response = await axios.post("/delListing", {
       uid: uid,
     });
-    const x = (
-      <div className="h1 text-danger text-center font-weight-bold">
-        Listing Successfully Deleted
-      </div>
-    );
-    setResp(x);
+    console.log("Delete",response.data.flag);
+    if(response.data.flag===false)
+    {
+      const x = (
+        <div className="h1 text-danger text-center font-weight-bold">
+          No record found!
+        </div>
+      );
+      setResp(x);
+    }
+    else{
+      const x = (
+        <div className="h1 text-danger text-center font-weight-bold">
+          Listing Successfully Deleted
+        </div>
+      );
+      setResp(x);
+    }
   }
   const { currentUser } = useAuth();
   const [resp, setResp] = useState("");
