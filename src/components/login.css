@@ -64,6 +64,17 @@
     background-size: cover;
     padding: 0;
   }
+  .information-columnSeller{
+    width: 100%;
+    min-height: 50rem; 
+    float: left;
+    position: relative;
+    background-image: url("../assets/horticulture.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+  }
   
   .content {
     width: 100%;
@@ -86,7 +97,7 @@
     padding: 1rem 2rem 0 2rem;
     float: right;
     background: #68520b;
-    background: linear-gradient(45deg, #83590b 0%, #dda65e 54%, #a15813 100%);
+    background: linear-gradient(45deg, #a57d34 0%, #dda65e 54%, #cc711c 100%);
     display:flex;
     flex-direction: column;
     justify-content: center;

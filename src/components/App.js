@@ -18,8 +18,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage}></Route>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/seller" component={Seller} />
-            <PrivateRoute exact path="/view-listings" component={SellerView} />
+            <PrivateRoute exact path="/seller" component={Seller} />
+            <Route exact path="/view-listings" component={SellerView} />
             <PrivateRoute path="/updateprofile" component={UpdateProfile} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />

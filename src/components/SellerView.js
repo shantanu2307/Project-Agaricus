@@ -3,6 +3,8 @@ import { Card, Button } from "react-bootstrap";
 import Navbar from "./SellerNav";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
+import './seller.css'
+import './login.css'
 export default function SellerView() {
   async function handleSubmit() {
     const uid = currentUser.uid;
@@ -29,11 +31,11 @@ export default function SellerView() {
           "https://drive.google.com/thumbnail?id="+res2;
         console.log(z);
         const x = (
-        <Card>
-          <Card.Header className="h1 font-weight-bold text-center">
+        <div>
+          <h1 className="h1 font-weight-bold text-center">
             Listing
-          </Card.Header>
-          <Card.Body>
+          </h1>
+          <div>
             <div>
               <img
                 src={
@@ -51,8 +53,8 @@ export default function SellerView() {
                 Verified:{response.data.isVerified === true ? "True" : "False"}
               </div>
             </div>
-          </Card.Body>
-        </Card>
+          </div>
+        </div>
       );
       setResp(x);
     }
@@ -87,13 +89,21 @@ export default function SellerView() {
   return (
     <div>
       <Navbar />
+          <div className="row listButtons">
+            <div className="information-columnSeller col-12 col-lg-6">
+              <div className="content2">
+                
+              </div>
+            </div>
+      <div className="listButtonsdiv col-12 col-lg-6">
       {resp}
-      <div style={{marginTop:"15%"}}>
         <Button
           className="w-50"
           type="submit"
           variant="success"
           onClick={handleSubmit}
+          className="listButton"
+          style={{padding:"3%", backgroundColor:"blue"}}
         >
           Get Listings
         </Button>
@@ -102,10 +112,13 @@ export default function SellerView() {
           type="submit"
           variant="danger"
           onClick={handleSubmit2}
+          className="listButton"
+          style={{padding:"3%"}}
         >
-          Delete Listings
+        Delete Listings
         </Button>
       </div>
+    </div>
     </div>
   );
 }
