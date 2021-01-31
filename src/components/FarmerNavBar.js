@@ -30,7 +30,7 @@ export default function FarmerNavBar() {
           style={{ backgroundColor: "white" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <Nav.Link>
               <Link to="/dashboard">
                 <span className="navItem">Get Listings</span>

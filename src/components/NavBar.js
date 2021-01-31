@@ -5,7 +5,7 @@ import {Navbar,Nav} from 'react-bootstrap'
 export default function NavBar() {
   return (
     <>
-      <Navbar sticky="top" expand="lg" style={{ backgroundColor: "#83590b" }}>
+      <Navbar sticky="top" expand="lg" style={{ backgroundColor: "#83590b" }} >
         <Navbar.Brand>
           <Link to="/" >
           <span className="navItem">कुकुरमुत्ता</span>
@@ -16,7 +16,7 @@ export default function NavBar() {
           style={{ backgroundColor: "#fffddd" }}
         />
         <Navbar.Collapse id="basic-navbar-nav" >
-          <Nav className="">
+          <Nav className="ml-auto">
             <Nav.Link>
               <Link to="/login">
                 <span className="navItem">Login</span>

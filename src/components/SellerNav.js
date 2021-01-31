@@ -30,7 +30,7 @@ export default function NavBar() {
           style={{ backgroundColor: "white" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <Nav.Link>
               <Link to="/seller">
                 <span className="navItem">Create Listing</span>
