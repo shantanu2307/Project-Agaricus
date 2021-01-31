@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, {useEffect,useRef,useState} from 'react'
 import Navbar from './FarmerNavBar'
-import {Card,Form, Button} from 'react-bootstrap'
+import {Card,Form, Button,Alert} from 'react-bootstrap'
 export default function Prices() {
   useEffect(() => {
     async function something(){
@@ -57,11 +57,11 @@ export default function Prices() {
           </Form>
         </Card.Body>
       </Card>
-      {loading &&(<Card>
-        <Card.Body>
-          The price is : {price}
-        </Card.Body>
-      </Card>)}
+      {loading && (
+        <Alert variant="success">
+          Your price is {price} Rs.
+        </Alert>
+      )}
     </div>
   );
 }
