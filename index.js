@@ -11,7 +11,7 @@ require("dotenv").config();
 
 const app = express();
 const uri = process.env.MONGO_URI;
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(morgan("tiny"));
 app.use(bodyParser.json({limit: '100mb'}));
