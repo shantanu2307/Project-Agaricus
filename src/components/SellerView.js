@@ -23,13 +23,21 @@ export default function SellerView() {
           </Card.Header>
           <Card.Body>
             <div>
-              <img src={response.data.pics} alt="SomeImg"></img>
+              <img
+                src={
+                  response.data.pics
+                }
+                alt="SomeImg"
+                style={{width:"300px",height:"200px"}}
+              ></img>
               <div>Name:{response.data.sellerName}</div>
               <div>State:{response.data.state}</div>
               <div>District:{response.data.district}</div>
               <div>Pincode:{response.data.pincode}</div>
               <div>Description:{response.data.details}</div>
-              <div>Verified:{response.data.isVerified===true?"True":"False"}</div>
+              <div>
+                Verified:{response.data.isVerified === true ? "True" : "False"}
+              </div>
             </div>
           </Card.Body>
         </Card>
@@ -56,7 +64,7 @@ export default function SellerView() {
     <div>
       <Navbar />
       {resp}
-      <div style={{marginTop:"30%"}}>
+      <div style={{marginTop:"15%"}}>
         <Button
           className="w-50"
           type="submit"
