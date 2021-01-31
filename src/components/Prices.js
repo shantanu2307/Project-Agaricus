@@ -20,6 +20,7 @@ export default function Prices() {
   async function handleSubmit(e){
     e.preventDefault();
     setDis(true);
+    setLoading(false);
     console.log(typeRef.current.value);
     console.log(dateRef.current.value);
     const response =await axios.post('/price',{
@@ -28,8 +29,9 @@ export default function Prices() {
     });
     console.log(response.data);
     setDis(false);
-    setPrice(<span>{response.data.item.replaceAll("[","").replaceAll("]","")}</span>)
-    setLoading(true)
+    setPrice(<span>{response.data.item.replaceAll("[", "").replaceAll("]", "")}</span>);
+    setLoading(true);
+    
   }
 
   const [dp,sdp]=useState("");
@@ -46,7 +48,7 @@ export default function Prices() {
           Price Prediction
         </Card.Header>
         {dis && (
-          <Alert className="font-weight-bolder h5" variant="primary">
+          <Alert className="font-weight-bolder h5" variant="secondary">
             Loading..
           </Alert>
         )}
