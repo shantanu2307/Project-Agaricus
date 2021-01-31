@@ -46,6 +46,7 @@ export default function Dashboard() {
         );
       });
       setEntries(x);
+      setLoading(false);
     }
   }
   const [entries,setEntries]=useState("");
