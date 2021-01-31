@@ -25,7 +25,7 @@ export default function Prices() {
       date:dateRef.current.value
     });
     console.log(response.data);
-    setPrice(<div>{response.data.result.item}</div>)
+    setPrice(<div>{response.data.item}</div>)
     setLoading(true);
   }
 
