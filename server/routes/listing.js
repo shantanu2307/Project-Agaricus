@@ -7,10 +7,10 @@ router.post("/listing", async (req, res) => {
     const seller = await Seller.findOne({ uid: req.body.uid });
     const obj = {
       uid: seller._id,
-      district: req.body.district,
-      state: req.body.state,
+      district: req.body.district.toLowerCase(),
+      state: req.body.state.toLowerCase(),
       details: req.body.details,
-      pincode: req.body.pincode,
+      pincode: req.body.pincode.toLowerCase(),
       sellerName: seller.name,
       certificate: req.body.certificate,
       pics: req.body.pics,
@@ -54,4 +54,20 @@ router.post("/delListing", async (req, res) => {
     res.send(e);
   }
 });
+router.post('/allListings', async(req,res)=>{
+  try{
+   const listingA = Listing;
+   console.log(listingA);
+   const listingB = listingA.find({state:req.body.state.toLowerCase()})
+   console.log(listingB)
+   const listingC = listingB.find({district:req.body.district.toLowerCase()})
+   console.log(listingC)
+   res.send(listingB)
+  }
+  catch(e)
+  {
+  console.log(e)
+  res.send(e)
+  }
+})
 module.exports = router;
