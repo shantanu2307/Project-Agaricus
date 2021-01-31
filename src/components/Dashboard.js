@@ -16,13 +16,14 @@ export default function Dashboard() {
     const response =await axios.post('/allListings',{
       pincode:pincodeRef.current.value,
       state:state,
-      district:district
+      district:district,
+      type:typeRef.current.value
     });
     console.log(response);
     const x=response.data.map((listing,index)=>{
       return(
         <Card>
-          <Card.Header>Listing {index}</Card.Header>
+          <Card.Header className="text-center">Listing {index}</Card.Header>
           <Card.Body>
             <div>
               <img src={listing.pics} alt="pic"></img>
@@ -79,7 +80,7 @@ export default function Dashboard() {
           </Button>
         </div>
       </Form>
-      <div className="d-flex flex-row justify-content-center">
+      <div className="d-flex justify-content-center mt-lg-5 " style={{gap:"10%"}}>
         {entries}
       </div>
     </>
