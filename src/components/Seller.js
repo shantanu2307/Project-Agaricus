@@ -1,22 +1,40 @@
-import React, {useRef} from 'react'
-import {Card, Form,Button} from 'react-bootstrap';
+import React, {useRef,useState} from 'react'
+import {Card,Alert, Form,Button} from 'react-bootstrap';
 import {useAuth} from '../contexts/AuthContext'
 import axios from 'axios'
 import Navbar from './SellerNav'
 export default function Seller() {
   async function handleSubmit(e){
     e.preventDefault();
-    const response=await axios.post("/listing", {
-      uid:currentUser.uid,
-      sellerName: nameRef.current.value,
-      certificate: certRef.current.value,
-      pincode: pincodeRef.current.value,
-      details: descriptionRef.current.value,
-      state:stateRef.current.value,
-      district:districtRef.current.value,
-      pics:picRef.current.value,
+    const get=await axios.post('/listings',{
+      uid:currentUser.uid
     });
-    console.log(response);
+    if(get.data==="")
+    {
+      const response = await axios.post("/listing", {
+        uid: currentUser.uid,
+        sellerName: nameRef.current.value,
+        certificate: certRef.current.value,
+        pincode: pincodeRef.current.value,
+        details: descriptionRef.current.value,
+        state: stateRef.current.value,
+        district: districtRef.current.value,
+        pics: picRef.current.value,
+      });
+      console.log(response);
+      const x=(<Alert variant="success">Your Listing has been posted successfully</Alert>)
+      setError(x);
+    }
+    else{
+      const x = (
+        <Alert variant="danger">
+          Your Listing already exists
+        </Alert>
+      );
+      setError(x);
+    }
+    
+    
   }
   const nameRef=useRef();
   const stateRef=useRef();
@@ -26,9 +44,11 @@ export default function Seller() {
   const certRef=useRef();
   const picRef=useRef();
   const {currentUser}=useAuth();
+  const [error,setError]=useState("");
   return (
     <div>
       <Navbar />
+      {error}
       <div className="h1 text-center mt-lg-3">Welcome {currentUser.email}!</div>
       <Card>
         <Card.Body
