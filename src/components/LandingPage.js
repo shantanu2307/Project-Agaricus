@@ -4,6 +4,7 @@ import howlab from '../assets/howlab.jpg'
 import price from '../assets/price.png'
 import stubble2 from '../assets/stubble2.jpg'
 import first from '../assets/first.jpg'
+import Footer from './Footer'
 import stubbleburn from '../assets/stubble-burning.jpg'
 import stubblenew from '../assets/stubblenew.jpg'
 import lab from '../assets/lab.jpg'
@@ -115,6 +116,7 @@ export default function LandingPage() {
           </Card.Body>
         </Card>
       </div>
+      <Footer />
     </div>
   );
 }
