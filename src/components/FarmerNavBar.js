@@ -1,10 +1,10 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import "./NavBar.css";
-import { Link ,useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
-export default function NavBar() {
+export default function FarmerNavBar() {
   const [error, setError] = useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
@@ -32,13 +32,13 @@ export default function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link>
-              <Link to="/seller">
-                <span className="navItem">Create Listing</span>
+              <Link to="/dashboard">
+                <span className="navItem">Get Listings</span>
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/view-listings">
-                <span className="navItem">View Listing</span>
+              <Link to="/price">
+                <span className="navItem">Price Prediction</span>
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -56,5 +56,4 @@ export default function NavBar() {
       </Navbar>
     </>
   );
- 
 }
