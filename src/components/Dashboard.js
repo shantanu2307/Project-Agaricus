@@ -13,13 +13,33 @@ export default function Dashboard() {
     const district=details.data[0].PostOffice[0].District;
     console.log(state,district);
     console.log(details);
-    const response =await axios.post('/allListing',{
+    const response =await axios.post('/allListings',{
       pincode:pincodeRef.current.value,
       state:state,
       district:district
     });
     console.log(response);
+    const x=response.data.map((listing,index)=>{
+      return(
+        <Card>
+          <Card.Header>Listing {index}</Card.Header>
+          <Card.Body>
+            <div>
+              <img src={listing.pics} alt="pic"></img>
+            </div>
+            <div>Name: {listing.sellerName}</div>
+            <div>Type: {listing.type}</div>
+            <div>Details: {listing.details}</div>
+            <div>State: {listing.state}</div>
+            <div>District: {listing.district}</div>
+            <div>Pincode:{listing.pincode}</div>
+          </Card.Body>
+        </Card>
+      );
+    })
+    setEntries(x);
   }
+  const [entries,setEntries]=useState("");
   const pincodeRef=useRef();
   const typeRef=useRef();
   return (
@@ -59,6 +79,9 @@ export default function Dashboard() {
           </Button>
         </div>
       </Form>
+      <div className="d-flex flex-row justify-content-center">
+        {entries}
+      </div>
     </>
   );
 }

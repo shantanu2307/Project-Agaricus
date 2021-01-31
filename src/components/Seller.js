@@ -10,6 +10,10 @@ export default function Seller() {
     var get = await axios.post('/listings', {
       uid: currentUser.uid
     });
+    var org = picRef.current.value;
+    var res1 = org.replace("https://drive.google.com/file/d/", "");
+    var res2 = res1.replace("/view?usp=sharing", "");
+    const z = "https://drive.google.com/thumbnail?id=" + res2;
     const details = await axios.get(
       "https://api.postalpincode.in/pincode/" + pincodeRef.current.value
     );
@@ -25,7 +29,7 @@ export default function Seller() {
         details: descriptionRef.current.value,
         state,
         district,
-        pics: picRef.current.value,
+        pics: z,
       });
       console.log(response);
       var x = (<Alert variant="success">Your Listing has been posted successfully</Alert>)
