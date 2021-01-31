@@ -5,15 +5,19 @@ const router = require("express").Router();
 router.post("/listing", async (req, res) => {
   try {
     const seller = await Seller.findOne({ uid: req.body.uid });
+    const type= "Stubble"
+    if(seller.type==="Horticulture")
+    type = "Horticulture"
     const obj = {
       uid: seller._id,
-      district: req.body.district.toLowerCase(),
-      state: req.body.state.toLowerCase(),
+      district: req.body.district,
+      state: req.body.state,
       details: req.body.details,
-      pincode: req.body.pincode.toLowerCase(),
+      pincode: req.body.pincode,
       sellerName: seller.name,
       certificate: req.body.certificate,
       pics: req.body.pics,
+      type: type
     };
     let user = await new Listing(obj);
     console.log(user);
@@ -58,9 +62,9 @@ router.post('/allListings', async(req,res)=>{
   try{
    const listingA = Listing;
    console.log(listingA);
-   const listingB = listingA.find({state:req.body.state.toLowerCase()})
+   const listingB = listingA.find({state:req.body.state})
    console.log(listingB)
-   const listingC = listingB.find({district:req.body.district.toLowerCase()})
+   const listingC = listingB.find({district:req.body.district})
    console.log(listingC)
    res.send(listingB)
   }

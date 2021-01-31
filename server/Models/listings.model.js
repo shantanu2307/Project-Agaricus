@@ -5,6 +5,11 @@ const listingSchema = new mongoose.Schema({
     ref :'Seller' ,
     required: true
   },
+  type:{
+   type: String,
+   required: true,
+   enum:["Horticulture","Stubble"]
+  },
   sellerName:{
   type: String,
   required: true
