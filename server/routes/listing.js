@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.post("/listing", async (req, res) => {
   try {
     const seller = await Seller.findOne({ uid: req.body.uid });
-    const type= "Stubble"
+    var type= "Stubble"
     if(seller.type==="Horticulture")
     type = "Horticulture"
     const obj = {
@@ -60,13 +60,13 @@ router.post("/delListing", async (req, res) => {
 });
 router.post('/allListings', async(req,res)=>{
   try{
-   const listingA = Listing;
+   var listingA = await Listing.find({pincode: req.body.pincode});
    console.log(listingA);
-   const listingB = listingA.find({state:req.body.state})
-   console.log(listingB)
-   const listingC = listingB.find({district:req.body.district})
+   const listingB =await  Listing.find({district:req.body.district, pincode:{$ne: req.body.pincode}})
+   const listingC = await Listing.find({state:req.body.state,pincode : { $ne: req.body.pincode},district:{$ne: req.body.district} })
+   const combined = listingA.concat(listingB).concat(listingC)
    console.log(listingC)
-   res.send(listingB)
+   res.send(combined)
   }
   catch(e)
   {
