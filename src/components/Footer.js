@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="footer">
             <div className="footer__logo-box">
-                <img src={logo} alt="Full logo" className="footer__logo logo" />
+                <img src={logo} alt="Full logo" className="footer__logo logo mr-3" />
             </div>
             <div className="row footer-bottom d-flex justify-content-center w-100">
                 <div className="col-1-of-2">

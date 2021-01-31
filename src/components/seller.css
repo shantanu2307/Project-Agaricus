@@ -7,6 +7,15 @@
     flex-wrap: wrap;
     border:none;
     background-size: cover;
+    font-size: 20px;
+}
+.farmer{
+    background: linear-gradient(0deg, rgba(41, 40, 40, 0.5), rgba(209, 202, 206, 0.5)),url("../assets/farming.jpg");
+    border:none;
+    background-size: cover;
+    font-size: 20px;
+    height:60rem;
+    color:white;
 }
 .region{
     width:90%;

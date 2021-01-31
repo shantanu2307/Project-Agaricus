@@ -55,13 +55,13 @@ export default function Seller() {
   return (
     <div>
       <Navbar />
-      {error}
-      <div className="h1 text-center">Welcome {currentUser.email}!</div>
+      <div className="h3"style={{borderRadius:"5px",padding:"0.8rem"}}>Welcome {currentUser.email}!</div>
       <Card>
         <div className="seller">
           <h2 className="text-uppercase" style={{ paddingTop: "8% " }}>
             Create A Listing
           </h2>
+          {error}
           <Card.Body>
             <div>
               <Form
@@ -79,7 +79,20 @@ export default function Seller() {
                       required
                     ></Form.Control>
                   </Form.Group>
-                  <Form.Group id="pincode">
+                  <Form.Group id="description">
+                    <Form.Label className="font-weight-bold">
+                      Description
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      ref={descriptionRef}
+                      required
+                      style={{height:"150px"}}
+                    ></Form.Control>
+                  </Form.Group>
+                </div>
+                <div className="region">
+                <Form.Group id="pincode">
                     <Form.Label className="font-weight-bold">
                       Pincode
                     </Form.Label>
@@ -89,25 +102,13 @@ export default function Seller() {
                       required
                     ></Form.Control>
                   </Form.Group>
-                </div>
-                <div className="region">
-                  <Form.Group id="description">
-                    <Form.Label className="font-weight-bold">
-                      Description
-                    </Form.Label>
-                    <Form.Control
-                      type="text"
-                      ref={descriptionRef}
-                      required
-                    ></Form.Control>
-                  </Form.Group>
                   <Form.Group id="certification">
                     <Form.Label className="font-weight-bold">
                       Certification
                     </Form.Label>
                     <br></br>
                     <div>
-                      <em className="font-smaller" style={{ fontSize: "13px" }}>
+                      <em className="font-smaller" style={{ fontSize: "15px" }}>
                         Add Google Drive Link
                       </em>
                     </div>
@@ -123,7 +124,7 @@ export default function Seller() {
                     </Form.Label>
                     <br></br>
                     <div>
-                      <em className="font-smaller" style={{ fontSize: "13px" }}>
+                      <em className="font-smaller" style={{ fontSize: "15px" }}>
                         Add Google Drive Link
                       </em>
                     </div>
@@ -141,7 +142,7 @@ export default function Seller() {
                 onClick={handleSubmit}
                  className="w-20"
                 type="submit"
-                style={{ marginLeft: "50%", marginBottom: "6%" }}
+                style={{ marginLeft: "50%", marginBottom: "6%", padding:"1rem" }}
               >
                 Submit
               </Button>

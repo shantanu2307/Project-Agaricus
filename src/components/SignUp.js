@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './NavBar.js'
 import './signup.css'
+import Footer from './Footer'
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef = useRef();
@@ -204,7 +205,7 @@ export default function SignUp() {
         </Card.Body>
         </div>
       </Card>
-      
+      <Footer />
     </>
   );
 }
