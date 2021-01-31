@@ -63,7 +63,7 @@ router.post('/allListings', async(req,res)=>{
    var listingA = await Listing.find({pincode: req.body.pincode, type: req.body.type});
    console.log(listingA);
    const listingB =await  Listing.find({district:req.body.district, type: req.body.type,pincode:{$ne: req.body.pincode}})
-   const listingC = await Listing.find({state:req.body.state, type: req.body.type, pincode : { $ne: req.body.pincode},district:{$ne: req.body.district} })
+   const listingC = await Listing.find({state:req.body.state, type: req.body.type,pincode : { $ne: req.body.pincode},district:{$ne: req.body.district} })
    const combined = listingA.concat(listingB).concat(listingC)
    console.log(listingC)
    res.send(combined)

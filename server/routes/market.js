@@ -13,4 +13,27 @@ router.post('/market', async(req,res)=>
      res.send(e);
     }
 })
+router.post('/getMarket',async (req, res)=>{
+    try{
+        const market = await Market.find({})
+        market.sort();
+        res.send(market);
+    }
+    catch(e){
+        console.log(e)
+        res.send(e)
+    }
+
+})
+router.post('/price', async(req,res)=>{
+try{
+
+
+}
+catch(e)
+{
+    console.log(e)
+   res.send(e);
+}
+})
 module.exports = router;
