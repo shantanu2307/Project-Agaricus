@@ -28,10 +28,12 @@ router.post('/getMarket',async (req, res)=>{
 })
 router.post('/price',(req,res)=>{
     console.log(req.body);
-    let pyshell = new PythonShell('../../connect.py');
+    let {market,date} = req.body;
+    let data = {market,date};
+    let pyshell = new PythonShell('../python-script/connect.py');
 
     // sends a message to the Python script via stdin
-    pyshell.send(JSON.stringify(req.body));
+    pyshell.send(JSON.stringify(data));
     pyshell.on('message', function (message) {
         console.log(message);
     });
