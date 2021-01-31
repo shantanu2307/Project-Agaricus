@@ -1,5 +1,6 @@
 const Market = require("../Models/market.model");
 const router = require("express").Router();
+const {PythonShell} = require('python-shell');
 router.post('/market', async(req,res)=>
 {
     try{
@@ -25,15 +26,21 @@ router.post('/getMarket',async (req, res)=>{
     }
 
 })
-router.post('/price', async(req,res)=>{
-try{
+router.post('/price',(req,res)=>{
+    console.log(req.body);
+    let pyshell = new PythonShell('.././connect.py');
 
-
-}
-catch(e)
-{
-    console.log(e)
-   res.send(e);
-}
+    // sends a message to the Python script via stdin
+    pyshell.send(JSON.stringify(req.body));
+    pyshell.on('message', function (message) {
+        console.log(message);
+    });
+    pyshell.end(function (err,code,signal) {
+        if (err) throw err;
+        console.log('The exit code was: ' + code);
+        console.log('The exit signal was: ' + signal);
+        console.log('finished');
+        res.json({data: message});
+    });
 })
 module.exports = router;
