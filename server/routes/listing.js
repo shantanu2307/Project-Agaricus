@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.post("/listing", async (req, res) => {
   try {
     const seller = await Seller.findOne({ uid: req.body.uid });
-    const type= "Stubble"
+    var type= "Stubble"
     if(seller.type==="Horticulture")
     type = "Horticulture"
     const obj = {
