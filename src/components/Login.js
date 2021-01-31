@@ -19,11 +19,12 @@ export default function Login() {
       setLoading(true);
       const user=await login(emailRef.current.value, passwordRef.current.value);
       const uid=user.user.uid;
-      const response=await axios.get('/role',{
+      const response=await axios.post('/role',{
         uid:uid
       });
       console.log(response);
       const role=response.data.role
+      console.log("role",role);
       if(role==="farmer")
       {
         history.push('/dashboard');
