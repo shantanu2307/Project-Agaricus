@@ -25,9 +25,13 @@ export default function Prices() {
       date:dateRef.current.value
     });
     console.log(response.data);
+    setPrice(response.data.price);
+    setLoading(true);
   }
 
   const [dp,sdp]=useState("");
+  const [price, setPrice]=useState(0);
+  const [loading,setLoading]=useState(false);
   const typeRef=useRef();
   const dateRef=useRef();
   return (
@@ -53,6 +57,11 @@ export default function Prices() {
           </Form>
         </Card.Body>
       </Card>
+      {loading &&(<Card>
+        <Card.Body>
+          The price is : {price}
+        </Card.Body>
+      </Card>)}
     </div>
   );
 }
