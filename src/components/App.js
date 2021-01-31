@@ -9,6 +9,7 @@ import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import LandingPage from "./LandingPage";
 import Seller from './Seller';
+import Prices from './Prices';
 import SellerView from './SellerView'
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <PrivateRoute exact path="/seller" component={Seller} />
             <PrivateRoute exact path="/view-listings" component={SellerView} />
             <PrivateRoute path="/updateprofile" component={UpdateProfile} />
+            <PrivateRoute path="/prices" component={Prices} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />

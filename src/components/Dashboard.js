@@ -11,6 +11,7 @@ export default function Dashboard() {
     const details = await axios.get("https://api.postalpincode.in/pincode/"+pincodeRef.current.value);
     const state=details.data[0].PostOffice[0].State;
     const district=details.data[0].PostOffice[0].District;
+    console.log(state,district);
     console.log(details);
     const response =await axios.post('/allListing',{
       pincode:pincodeRef.current.value,

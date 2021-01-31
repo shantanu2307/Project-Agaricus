@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 export default function UpdateProfile() {
@@ -41,7 +41,7 @@ export default function UpdateProfile() {
       <div className="rounded">
         <div className="basic">
           <div id="wrapper" style={{ borderRadius: "10px" }}>
-            <div className="container" >
+            <div className="container" id="container">
               <div className="row">
                 <div className="information-columnUpdate col-12 col-md-5">
                   <div className="content">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './NavBar'
-import brown from '../assets/brown.jpeg'
-import culture from '../assets/culture.jpg'
+import howlab from '../assets/howlab.jpg'
+import price from '../assets/price.png'
 import stubble2 from '../assets/stubble2.jpg'
 import first from '../assets/first.jpg'
 import stubbleburn from '../assets/stubble-burning.jpg'
@@ -9,7 +9,7 @@ import stubblenew from '../assets/stubblenew.jpg'
 import lab from '../assets/lab.jpg'
 import collage from '../assets/collage.png'
 import logo from '../assets/2.png'
-import {Jumbotron,Button, Card,Carousel} from 'react-bootstrap'
+import {Jumbotron, Card,Carousel} from 'react-bootstrap'
 import './landing.css'
 export default function LandingPage() {
   return (
@@ -43,37 +43,40 @@ export default function LandingPage() {
           <Card.Header className="card-header">
             <div className="h1 text-uppercase">How we work</div>
           </Card.Header>
-          <Card.Body className="card-body">
+          <Card.Body className="card2">
             <div
-              className="justify-content-center d-flex flex-center flex-md-row"
-              style={{ gap: "5%" }}
+              className="row"
             >
-              <div><img className="features" src={culture} alt="some pic" /><br></br>
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={howlab} alt="Lab Verification" /><br></br>
               <div className="text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
-              vulputate magna tortor, sit amet congue lorem efficitur ultrices.
+              Which standard should industry and entrepreneurs abide by in production of spawns?
+              There are reports of spawn units cheating farmers by supplying inferior spawns and spores cultures.
+              <br />
+              Buy from sellers verified by our experts.
             </div>
               </div>
-              <div><img className="features" src={stubble2} alt="some pic" /><br></br>
+              <div className=" pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={stubble2} alt="Stubble" /><br></br>
               <div className="text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
-              vulputate magna tortor, sit amet congue lorem efficitur ultrices.
+              Despite a ban on paddy stubble burning, farmers dispose of paddy straw by setting it afire.
+              Paddy straw can be used conveniently for 'mushroom cultivation' and making ‘mushroom growing houses’.
+              <br />
+              Connecting stubble sellers and mushroom cultivators.
             </div>
               </div>
-              <div><img className="features w-100" src={brown} alt="some pic" /><br></br>
+              <div className="pictures col-xl-4 col-md-6 col-12"><img className="features img-fluid" src={price} alt="Uncertain prices" /><br></br>
               <div className="text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque sit amet nisi ut justo pulvinar suscipit. Mauris
-              vulputate magna tortor, sit amet congue lorem efficitur ultrices.
+              Many predict that mushrooms are the next high value agriculture crop which can transform incomes of small and marginal farmers.
+              The mushrooms sector is unregulated. Hence the uncertainity in prices.
+              <br />
+              Check out the predicted prices so that you can decide how much!
             </div>
               </div>
             </div>
           </Card.Body>
         </Card>
       </div>
-      <div className="spores">
+      <div className="carousel-outer">
+      <div className="spores container">
       <Carousel>
         <Carousel.Item>
           <img
@@ -94,8 +97,8 @@ export default function LandingPage() {
           />
 
           <Carousel.Caption>
-            <h3>Pollution</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Earn, Don't Burn!</h3>
+            <p>Burning leads to serious environmental consequences that have deleterious impact both on human and soil health.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -105,8 +108,8 @@ export default function LandingPage() {
             alt="Bundles of stubble"
           />
             <Carousel.Caption>
-              <h3>Earn, Don't Burn!</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h3>Go Green While Earning</h3>
+              <p>Sell your stubble. It reduces the cost of mushroom cultivation. Experts especially recommend it for small and marginal farmers who have little or no land holdings.</p>
             </Carousel.Caption>
           </Carousel.Item>
         <Carousel.Item>
@@ -121,6 +124,7 @@ export default function LandingPage() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+      </div>
       </div>
     </div>
   );
