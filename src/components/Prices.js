@@ -42,8 +42,8 @@ export default function Prices() {
           Price Prediction
         </Card.Header>
         {loading && (
-          <Alert variant="success" className="font-weight-bolder">
-            Your price is &#8377; {price}
+          <Alert variant="success" className="font-weight-bolder h5">
+            Your predicted price is &#8377; {price}
           </Alert>
         )}
         <Card.Body>
