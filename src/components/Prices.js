@@ -25,7 +25,7 @@ export default function Prices() {
       date:dateRef.current.value
     });
     console.log(response.data);
-    setPrice(<div>{response.data.item}</div>)
+    setPrice(<span>{response.data.item.replaceAll("{","").replaceAll("}","")}</span>)
     setLoading(true);
   }
 
@@ -41,6 +41,11 @@ export default function Prices() {
         <Card.Header className="h1 text-center border-0 font-weight-bolder bg-white">
           Price Prediction
         </Card.Header>
+        {loading && (
+          <Alert variant="success" className="font-weight-bolder">
+            Your price is &#8377; {price}
+          </Alert>
+        )}
         <Card.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group id="type">
@@ -57,11 +62,6 @@ export default function Prices() {
           </Form>
         </Card.Body>
       </Card>
-      {loading && (
-        <Alert variant="success">
-          Your price is {price} Rs.
-        </Alert>
-      )}
     </div>
   );
 }
