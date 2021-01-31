@@ -6,6 +6,7 @@ const cors = require('cors');
 const farmerRoute = require("./server/routes/farmer");
 const sellerRoute = require("./server/routes/seller");
 const listingRoute = require("./server/routes/listing");
+const marketRoute = require("./server/routes/market");
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 app.use(farmerRoute);
 app.use(sellerRoute);
 app.use(listingRoute);
+app.use(marketRoute)
 app.use(cors());
 
 mongoose.connect(uri, {
