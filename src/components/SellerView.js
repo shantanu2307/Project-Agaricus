@@ -96,7 +96,7 @@ export default function SellerView() {
           type="submit"
           variant="success"
           onClick={handleSubmit}
-          className="listButton"
+          className ="listButton"
           style={{padding:"3%", backgroundColor:"blue"}}
         >
           Get Listings
