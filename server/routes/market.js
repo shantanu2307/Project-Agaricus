@@ -26,23 +26,29 @@ router.post('/getMarket',async (req, res)=>{
     }
 
 })
-router.post('/price',(req,res)=>{
-    console.log(req.body);
+router.post('/img', (req, res) => {
     let {market,date} = req.body;
+
     let data = {market,date};
-    let pyshell = new PythonShell('../python-script/connect.py');
+    let pyshell = new PythonShell('./server/python-scripts/connect.py');
 
     // sends a message to the Python script via stdin
     pyshell.send(JSON.stringify(data));
+
+    var result;
     pyshell.on('message', function (message) {
         console.log(message);
+        result = {
+            item: message
+        };
+        console.log(result);
     });
     pyshell.end(function (err,code,signal) {
         if (err) throw err;
         console.log('The exit code was: ' + code);
         console.log('The exit signal was: ' + signal);
         console.log('finished');
-        res.json({data: message});
+        res.send(result);
     });
-})
+});
 module.exports = router;
