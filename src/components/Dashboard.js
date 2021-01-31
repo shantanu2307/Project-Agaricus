@@ -25,7 +25,7 @@ export default function Dashboard() {
         <Card>
           <Card.Header className="text-center">Listing {index}</Card.Header>
           <Card.Body>
-            <div>
+            <div >
               <img src={listing.pics} alt="pic"></img>
             </div>
             <div>Name: {listing.sellerName}</div>
@@ -46,12 +46,12 @@ export default function Dashboard() {
   return (
     <>
       <Navbar></Navbar>
-      <Card>
-        <Card.Header className="h1 font-weight-bold text-center text-uppercase bg-white">
+      <div className="farmer">
+        <h3 className="h3 font-weight-bold"style={{padding:"1rem"}}>
           Welcome {currentUser.email}
-        </Card.Header>
-      </Card>
-      <div className=" mt-3 h2 text-center text-capitalize font-weight-bold">
+        </h3>
+      <br></br>
+      <div className=" h2 text-center text-capitalize font-weight-bold">
         Get listings for spores and stubble
       </div>
       {listingArray}
@@ -74,14 +74,21 @@ export default function Dashboard() {
             </Form.Control>
           </Form.Group>
         </div>
+        <br></br>
         <div className="d-flex justify-content-center">
           <Button type="submit" className="w-25">
             Submit
           </Button>
         </div>
       </Form>
-      <div className="d-flex justify-content-center mt-lg-5 " style={{gap:"10%"}}>
+      <br></br>
+      
+      
+      <div className="d-flex justify-content-center mt-lg-5 " style={{gap:"10%",color:"black"}}>
         {entries}
+      </div>
+      <br></br>
+      <br></br>
       </div>
     </>
   );
