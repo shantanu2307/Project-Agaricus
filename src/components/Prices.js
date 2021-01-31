@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, {useEffect,useRef,useState} from 'react'
 import Navbar from './FarmerNavBar'
 import {Card,Form, Button,Alert} from 'react-bootstrap'
+import Footer from './Footer'
 export default function Prices() {
   useEffect(() => {
     async function something(){
@@ -38,7 +39,7 @@ export default function Prices() {
     <div>
       <Navbar />
       <Card>
-        <Card.Header className="h1 text-center border-0 font-weight-bolder bg-white">
+        <Card.Header className="h1 text-center text-uppercase border-0 font-weight-bolder bg-white">
           Price Prediction
         </Card.Header>
         {loading && (
@@ -62,6 +63,9 @@ export default function Prices() {
           </Form>
         </Card.Body>
       </Card>
+      <div className="w-100" style={{position:"absolute",bottom:"0"}}>
+        <Footer />
+      </div>
     </div>
   );
 }
