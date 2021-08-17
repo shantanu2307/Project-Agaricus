@@ -13,14 +13,6 @@ router.post("/farmer", async (req, res) => {
   }
 });
 
-router.get("/farmer", async (req, res)=>{
-  try{
-
-  }
-  catch(e){
-
-  }
-});
 
 router.post("/role", async(req,res) =>{
   try{

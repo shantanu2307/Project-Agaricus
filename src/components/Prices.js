@@ -54,7 +54,7 @@ export default function Prices() {
         )}
         {loading && (
           <Alert variant="success" className="font-weight-bolder h5">
-            Your predicted price is &#8377; {price}
+            Your predicted price is &#8377; {price} per tonne!
           </Alert>
         )}
         <Card.Body>

@@ -1,3 +1,4 @@
+import Joyride from "react-joyride";
 import React from "react";
 import Signup from "./SignUp";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -8,9 +9,9 @@ import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import LandingPage from "./LandingPage";
-import Seller from './Seller';
-import Prices from './Prices';
-import SellerView from './SellerView'
+import Seller from "./Seller";
+import Prices from "./Prices";
+import SellerView from "./SellerView";
 function App() {
   return (
     <div className="w-100">
