@@ -23,9 +23,9 @@ export default function Prices() {
     setLoading(false);
     console.log(typeRef.current.value);
     console.log(dateRef.current.value);
-    const response =await axios.post('/price',{
-      market:typeRef.current.value,
-      date:dateRef.current.value
+    const response = await axios.post("/price", {
+      market: "Attabira",
+      date: dateRef.current.value,
     });
     console.log(response.data);
     setDis(false);
