@@ -1,20 +1,20 @@
 const Market = require("../Models/market.model");
 const router = require("express").Router();
 const redis=require('redis');
-const client=redis.createClient();
+const client = redis.createClient();
 const {PythonShell} = require('python-shell');
 
-
-
-function cache(req, res, next) {
+async function cache(req, res, next) {
   const { market, date } = req.body;
-  const x={market,date};
-  const t=JSON.stringify(x);
-  console.log(t);
-  client.get(t, (err, data) => {
+  const key = String(market) + String(date);
+  // console.log(key);
+  client.get(key, async(err, data) => {
+    // console.log(data,"Hahahahaah");
     if (err) throw err;
     if (data !== null) {
-      res.send(data);
+      // console.log("Haha");
+      const rest={item:data};
+      await res.send(rest);
     } else {
       next();
     }
@@ -47,13 +47,10 @@ router.post('/getMarket',async (req, res)=>{
 
 })
 router.post('/price',cache,async(req, res,next) => {
-    // console.log(client);
     let {market,date} = req.body;
-    console.log(req.body)
-    let data = {market,date};
+    const data={market,date};
+    // console.log(req.body)
     let pyshell = await new PythonShell('./server/python-script/connect.py');
-
-    // sends a message to the Python script via stdin
     await pyshell.send(JSON.stringify(data));
 
     var result;
@@ -63,15 +60,17 @@ router.post('/price',cache,async(req, res,next) => {
             item: message
         };
         console.log(result);
-    });
-    const m=JSON.stringify(result);
-    await client.set(data, m);
+    }); 
+    
     await pyshell.end(function (err,code,signal) {
         if (err) throw err;
         console.log('The exit code was: ' + code);
         console.log('The exit signal was: ' + signal);
         console.log('finished');
+        const key = String(market) + String(date);
+        client.set(key, result.item);
         res.send(result);
     });
+    
 });
 module.exports = router;
