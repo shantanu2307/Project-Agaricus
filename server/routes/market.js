@@ -61,7 +61,10 @@ router.post('/price',cache,async(req, res,next) => {
     }); 
     
     await pyshell.end(function (err,code,signal) {
-        if (err) throw err;
+        if (err){
+          result={item:'[[Not Found]]'};
+          res.send(result);
+        };
         console.log('The exit code was: ' + code);
         console.log('The exit signal was: ' + signal);
         console.log('finished');

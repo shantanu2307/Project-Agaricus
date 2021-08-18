@@ -79,7 +79,7 @@ market_list=['Asandh',
      'Sirhind',
      'Una',
      'kalanwali']    
-# print(sys.argv)
+print(sys.argv)
 date=input()
 date=json.loads(date)
 
@@ -93,7 +93,7 @@ predict_input[0]=month
 predict_input[1]=year
 predict_input[market_list.index(date["market"])+2]=1
 predict_input=np.array([predict_input])
-# print(predict_input)
+print(predict_input)
    
 json_file=open('../server/python-script/model.json','r')
 loaded_model_json=json_file.read()
@@ -103,7 +103,7 @@ loaded_model.load_weights('../server/python-script/model.h5')
 #model = tf.keras.models.load_model('/mushroom_model.h5')
 
 y = loaded_model.predict(predict_input)
-# print(y)
+print(y)
 
  
 	

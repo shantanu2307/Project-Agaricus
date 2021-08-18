@@ -4,7 +4,12 @@
   "description": "# To run backend ## Open a new terminal ### cd server ### npm run serve",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "concurrently  \"cd client && npm start\"",
+    "pythonServer":"concurrently  \"cd server && cd python-script && python3 connect.py\"",
+    "server": "concurrently  \"cd server && npm run start\"",
+    "dev": "concurrently \"npm run client\" \"npm run server\" \"npm run pythonServer\""
+
   },
   "repository": {
     "type": "git",
