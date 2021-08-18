@@ -1,0 +1,23 @@
+{
+  "name": "mushroom",
+  "version": "1.0.0",
+  "description": "# To run backend ## Open a new terminal ### cd server ### npm run serve",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shantanu2307/mushroom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shantanu2307/mushroom/issues"
+  },
+  "homepage": "https://github.com/shantanu2307/mushroom#readme",
+  "dependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
