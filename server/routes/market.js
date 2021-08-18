@@ -9,10 +9,8 @@ async function cache(req, res, next) {
   const key = String(market) + String(date);
   // console.log(key);
   client.get(key, async(err, data) => {
-    // console.log(data,"Hahahahaah");
     if (err) throw err;
     if (data !== null) {
-      // console.log("Haha");
       const rest={item:data};
       await res.send(rest);
     } else {
@@ -50,7 +48,7 @@ router.post('/price',cache,async(req, res,next) => {
     let {market,date} = req.body;
     const data={market,date};
     // console.log(req.body)
-    let pyshell = await new PythonShell('./server/python-script/connect.py');
+    let pyshell = await new PythonShell('../server/python-script/connect.py');
     await pyshell.send(JSON.stringify(data));
 
     var result;

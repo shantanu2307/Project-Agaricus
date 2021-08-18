@@ -3,10 +3,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const farmerRoute = require("./server/routes/farmer");
-const sellerRoute = require("./server/routes/seller");
-const listingRoute = require("./server/routes/listing");
-const marketRoute = require("./server/routes/market");
+const farmerRoute = require("./routes/farmer");
+const sellerRoute = require("./routes/seller");
+const listingRoute = require("./routes/listing");
+const marketRoute = require("./routes/market");
 require("dotenv").config();
 const app = express();
 const uri = process.env.MONGO_URI;
@@ -53,9 +53,6 @@ mongoose.connection.on("connected", (err, res) => {
 redisClient.on("connect", function () {
   console.log("Connected to redis!");
 });
-
-// redisClient.set("key", "value", redis.print);
-// redisClient.get("key", redis.print);
 
 
 app.listen(port, () => {

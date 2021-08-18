@@ -1,4 +1,3 @@
-import Joyride from "react-joyride";
 import React from "react";
 import Signup from "./SignUp";
 import { AuthProvider } from "../contexts/AuthContext";

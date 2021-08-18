@@ -95,11 +95,11 @@ predict_input[market_list.index(date["market"])+2]=1
 predict_input=np.array([predict_input])
 print(predict_input)
    
-json_file=open('./server/python-script/model.json','r')
+json_file=open('../server/python-script/model.json','r')
 loaded_model_json=json_file.read()
 json_file.close()
 loaded_model=model_from_json(loaded_model_json)
-loaded_model.load_weights('./server/python-script/model.h5')
+loaded_model.load_weights('../server/python-script/model.h5')
 #model = tf.keras.models.load_model('/mushroom_model.h5')
 
 y = loaded_model.predict(predict_input)
