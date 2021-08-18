@@ -48,7 +48,7 @@ router.post('/price',cache,async(req, res,next) => {
     let {market,date} = req.body;
     const data={market,date};
     // console.log(req.body)
-    let pyshell = await new PythonShell('../server/python-script/connect.py');
+    let pyshell = await new PythonShell("../pythonServer/connect.py");
     await pyshell.send(JSON.stringify(data));
 
     var result;
@@ -64,13 +64,16 @@ router.post('/price',cache,async(req, res,next) => {
         if (err){
           result={item:'[[Not Found]]'};
           res.send(result);
-        };
-        console.log('The exit code was: ' + code);
-        console.log('The exit signal was: ' + signal);
-        console.log('finished');
-        const key = String(market) + String(date);
-        client.set(key, result.item);
-        res.send(result);
+        }
+        else{
+          console.log("The exit code was: " + code);
+          console.log("The exit signal was: " + signal);
+          console.log("finished");
+          const key = String(market) + String(date);
+          client.set(key, result.item);
+          res.send(result);
+        }
+        
     });
     
 });
