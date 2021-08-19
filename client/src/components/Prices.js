@@ -27,9 +27,8 @@ export default function Prices() {
       market: "Attabira",
       date: dateRef.current.value,
     });
-    console.log(response.data);
     setDis(false);
-    setPrice(<span>{response.data.item.replaceAll("[", "").replaceAll("]", "")}</span>);
+    setPrice(<span>{response.data}</span>);
     setLoading(true);
     
   }

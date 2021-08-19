@@ -6,10 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "concurrently  \"cd client && npm start\"",
-    "pserver":"concurrently  \"cd pythonServer && python3 connect.py\"",
     "server": "concurrently  \"cd server && npm run start\"",
-    "dev": "concurrently \"npm run client\" \"npm run server\" \"npm run pserver\""
-
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
