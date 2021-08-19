@@ -1,28 +1,45 @@
 const Listing = require("../Models/listings.model");
 const Seller = require("../Models/sellers.model");
 const router = require("express").Router();
+const redis=require('redis');
+const client = redis.createClient();
 
 router.post("/listing", async (req, res) => {
   try {
-    const seller = await Seller.findOne({ uid: req.body.uid });
-    var type= "Stubble"
-    if(seller.type==="Horticulture")
-    type = "Horticulture"
-    const obj = {
-      uid: seller._id,
-      district: req.body.district,
-      state: req.body.state,
-      details: req.body.details,
-      pincode: req.body.pincode,
-      sellerName: seller.name,
-      certificate: req.body.certificate,
-      pics: req.body.pics,
-      type: type
-    };
-    let user = await new Listing(obj);
-    console.log(user);
-    await user.save();
-    res.send(user);
+    const id=req.body.uid;
+    const key=String(id);
+    client.get(key, async(err, data)=>{
+      if(err)
+      throw err;
+      if(data==null || data==="")
+      {
+        const seller = await Seller.findOne({ uid: id });
+        var type= "Stubble"
+        if(seller.type==="Horticulture")
+        type = "Horticulture"
+        const obj = {
+          uid: seller._id,
+          district: req.body.district,
+          state: req.body.state,
+          details: req.body.details,
+          pincode: req.body.pincode,
+          sellerName: seller.name,
+          certificate: req.body.certificate,
+          pics: req.body.pics,
+          type: type
+        };
+        let user = await new Listing(obj);
+        console.log(user);
+        await user.save();
+       
+        const temp=JSON.stringify(user);
+        await client.set(key, temp);
+        res.send(user);
+      }
+      else
+      {console.log(data);
+        res.send({});}
+    })
   } catch (e) {
     console.log(e);
   }
@@ -44,8 +61,11 @@ router.post("/listings", async (req, res) => {
 });
 router.post("/delListing", async (req, res) => {
   try {
-    const seller = await Seller.findOne({ uid: req.body.uid });
+    const id=req.body.uid;
+    const key=String(id);
+    const seller = await Seller.findOne({ uid: id });
     const listing = await Listing.findOneAndDelete({ uid: seller._id });
+    await client.set(key, "");
     if (listing!=null) {
       console.log(listing);
       res.send({ flag: true });
