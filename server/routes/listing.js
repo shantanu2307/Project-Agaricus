@@ -47,6 +47,18 @@ router.post("/listing", async (req, res) => {
 router.post("/listings", async (req, res) => {
   try {
     console.log(req.body);
+    const id=req.body.uid;
+    const key=String(id);
+    client.get(key, async(err, data)=>{
+      if(err)
+      throw err;
+      if(data!=null && data!="")
+      {
+        const temp=JSON.parse(data);
+       // console.log("jaja");
+        await res.send(temp);
+      }
+      else{
     const seller = await Seller.findOne({ uid: req.body.uid });
     console.log(seller);
     if (seller) {
@@ -54,7 +66,7 @@ router.post("/listings", async (req, res) => {
       res.send(listing);
     } else {
       res.send({ sellerName: "false" });
-    }
+    }}});
   } catch (e) {
     console.log(e);
   }
