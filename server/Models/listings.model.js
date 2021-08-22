@@ -5,6 +5,7 @@ const listingSchema = new mongoose.Schema({
     ref :'Seller' ,
     required: true
   },
+  
   type:{
    type: String,
    required: true,
