@@ -1,8 +1,6 @@
 const Market = require("../Models/market.model");
 const axios =require('axios');
 const router = require("express").Router();
-const redis=require('redis');
-const client = redis.createClient();
 
 router.post('/market', async(req,res)=>
 {
@@ -30,24 +28,11 @@ router.post('/getMarket',async (req, res)=>{
 
 })
 router.post('/price',async(req, res,next) => {
-    let {market,date} = req.body;
-    const key = String(market) + String(date);
-    client.get(key, async(err, data) => {
-      if (err) throw err;
-      if (data !== null) {
-        await res.send(data);
-      } else {
-        const data={market,date};
-        const value = await axios.post("https://pricepredml.herokuapp.com/", {
-            market,date
-        });
-        console.log(value.data[0])
-        const key = String(market) + String(date);
-        await client.set(key, value.data[0]);
-        res.send(String(value.data[0]));
-      }
+    let { market, date } = req.body;
+    const value = await axios.post("https://pricepredml.herokuapp.com/", {
+      market,
+      date,
     });
-
-    
+    await res.send(value.data[0]);
 });
 module.exports = router;

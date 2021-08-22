@@ -1,95 +1,60 @@
 const Listing = require("../Models/listings.model");
 const Seller = require("../Models/sellers.model");
 const router = require("express").Router();
-const redis=require('redis');
-const client = redis.createClient();
-
+const redis =require('redis');
+client=redis.createClient();
 router.post("/listing", async (req, res) => {
-  try {
     const id=req.body.uid;
-    const key=String(id);
-    client.get(key, async(err, data)=>{
-      if(err)
-      throw err;
-      if(data==null || data==="")
-      {
-        const seller = await Seller.findOne({ uid: id });
-        var type= "Stubble"
-        if(seller.type==="Horticulture")
-        type = "Horticulture"
-        const obj = {
-          uid: seller._id,
-          district: req.body.district,
-          state: req.body.state,
-          details: req.body.details,
-          pincode: req.body.pincode,
-          sellerName: seller.name,
-          certificate: req.body.certificate,
-          pics: req.body.pics,
-          type: type
-        };
-        let user = await new Listing(obj);
-        console.log(user);
-        await user.save();
-       
-        const temp=JSON.stringify(user);
-        await client.set(key, temp);
-        res.send(user);
-      }
-      else
-      {console.log(data);
-        res.send({});}
-    })
-  } catch (e) {
-    console.log(e);
-  }
+    const seller = await Seller.findOne({ uid: id }).cache({ expire: 10,key:id });
+    var type= "Stubble"
+    if(seller.type==="Horticulture")
+    type = "Horticulture"
+    const obj = {
+      uid: seller._id,
+      district: req.body.district,
+      state: req.body.state,
+      details: req.body.details,
+      pincode: req.body.pincode,
+      sellerName: seller.name,
+      certificate: req.body.certificate,
+      pics: req.body.pics,
+      type: type
+    };
+    let listing = await new Listing(obj);
+    await listing.save();   
+    res.send(listing);
 });
+
 router.post("/listings", async (req, res) => {
-  try {
-    console.log(req.body);
-    const id=req.body.uid;
-    const key=String(id);
-    client.get(key, async(err, data)=>{
-      if(err)
-      throw err;
-      if(data!=null && data!="")
-      {
-        const temp=JSON.parse(data);
-       // console.log("jaja");
-        await res.send(temp);
-      }
-      else{
-    const seller = await Seller.findOne({ uid: req.body.uid });
-    console.log(seller);
-    if (seller) {
-      const listing = await Listing.findOne({ uid: seller._id });
-      res.send(listing);
-    } else {
+  const id=req.body.uid;
+  const seller = await Seller.findOne({ uid: req.body.uid }).cache({ expire: 10,key:id });
+  console.log(seller);
+  if (seller) {
+    const key =String(id)+String('Listing');
+    const listing = await Listing.findOne({ uid: seller._id }).cache({expire:10,key:key});
+    res.send(listing);
+  } 
+  else {
       res.send({ sellerName: "false" });
-    }}});
-  } catch (e) {
-    console.log(e);
   }
 });
+
 router.post("/delListing", async (req, res) => {
-  try {
     const id=req.body.uid;
-    const key=String(id);
-    const seller = await Seller.findOne({ uid: id });
-    const listing = await Listing.findOneAndDelete({ uid: seller._id });
-    await client.set(key, "");
+    const seller = await Seller.findOne({ uid: id }).cache({expire:10,key:id});
+    const key = String(id) + String("Listing");
+    const listing = await Listing.findOneAndDelete({ uid: seller._id});
     if (listing!=null) {
+      await client.del(key, function (err, reply) {
+        console.log(reply); // 1
+      });
       console.log(listing);
       res.send({ flag: true });
     }
     else{
       res.send({flag:false});
     }
-  } catch (e) {
-    console.log(e);
-    res.send(e);
-  }
-});
+  });
 
 router.post('/allListings', async(req,res)=>{
   try{

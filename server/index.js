@@ -11,22 +11,13 @@ require("dotenv").config();
 const app = express();
 const uri = process.env.MONGO_URI;
 const port = process.env.PORT || 8080;
+const util =require('util')
 const redis = require("redis");
-const session = require("express-session");
-
-let RedisStore = require("connect-redis")(session);
-let redisClient = redis.createClient();
-var sessionStore = new RedisStore({ client: redisClient });
+const client = redis.createClient();
+client.hget = util.promisify(client.hget);
 
 
-app.use(
-  session({
-    store: sessionStore,
-    saveUninitialized: false,
-    secret: "keyboard cat",
-    resave: false,
-  })
-);
+
 app.use(morgan("tiny"));
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
@@ -50,13 +41,60 @@ mongoose.connection.on("connected", (err, res) => {
   console.log("mongoose is connected");
 });
 
-redisClient.on("connect", function () {
+client.on("connect", function () {
   console.log("Connected to redis!");
 });
+
+const exec = mongoose.Query.prototype.exec;
+
+// create new cache function on prototype
+mongoose.Query.prototype.cache = function (options = { expire: 60 }) {
+  this.useCache = true;
+  this.expire = options.expire;
+  this.hashKey = JSON.stringify(options.key || this.mongooseCollection.name);
+
+  return this;
+};
+
+// override exec function to first check cache for data
+mongoose.Query.prototype.exec = async function () {
+  if (!this.useCache) {
+    return await exec.apply(this, arguments);
+  }
+
+  const key = JSON.stringify({
+    ...this.getQuery(),
+    collection: this.mongooseCollection.name,
+  });
+
+  // get cached value from redis
+  const cacheValue = await client.hget(this.hashKey, key);
+
+  // if cache value is not found, fetch data from mongodb and cache it
+  if (!cacheValue) {
+    const result = await exec.apply(this, arguments);
+    client.hset(this.hashKey, key, JSON.stringify(result));
+    client.expire(this.hashKey, this.expire);
+
+    console.log("Return data from MongoDB");
+    return result;
+  }
+
+  // return found cachedValue
+  const doc = JSON.parse(cacheValue);
+  console.log("Return data from Redis");
+  return Array.isArray(doc)
+    ? doc.map((d) => new this.model(d))
+    : new this.model(doc);
+};
 
 
 app.listen(port, () => {
   console.log(`Running at Port ${port}`);
 });
 
-module.exports=redisClient;
+module.exports = {
+  clearHash(hashKey) {
+    client.del(JSON.stringify(hashKey));
+  },
+};
