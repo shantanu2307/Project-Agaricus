@@ -14,7 +14,8 @@ const port = process.env.PORT || 8080;
 const util =require('util')
 const redis = require("redis");
 const client = redis.createClient({
-  url: process.env.REDIS_URL,
+  host: "redis-13137.c51.ap-southeast-2-1.ec2.cloud.redislabs.com",
+  port:13137,
   password: "QUCxSKxSUmgUX79FW3D2izFqMeFz4LtP",
 });
 client.hget = util.promisify(client.hget);
