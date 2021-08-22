@@ -46,7 +46,7 @@ mongoose.connection.on("connected", (err, res) => {
 });
 
 client.on("connect", function () {
-  console.log("Connected to redis!");
+  console.log("Connected to redis!",process.env.REDIS_URL);
 });
 
 const exec = mongoose.Query.prototype.exec;

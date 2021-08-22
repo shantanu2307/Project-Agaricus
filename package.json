@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "concurrently  \"cd client && npm start\"",
-    "server": "concurrently  \"cd server && npm run start\"",
-    "dev": "concurrently \"npm run client\" \"npm run server\""
+    "start": "cd server && npm install && node index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
