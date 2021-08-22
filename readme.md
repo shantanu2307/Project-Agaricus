@@ -11,7 +11,4 @@
 ### cd server
 ### npm run start
 
-## Open another terminal
-### cd python-script
-### python3 connect.py
 
