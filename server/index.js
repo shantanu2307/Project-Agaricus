@@ -13,9 +13,12 @@ const uri = process.env.MONGO_URI;
 const port = process.env.PORT || 8080;
 const util =require('util')
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient({
+  url: process.env.REDIS_URL,
+  password: "QUCxSKxSUmgUX79FW3D2izFqMeFz4LtP",
+});
 client.hget = util.promisify(client.hget);
-
+const path = require("path");
 
 
 app.use(morgan("tiny"));
@@ -26,6 +29,7 @@ app.use(sellerRoute);
 app.use(listingRoute);
 app.use(marketRoute)
 app.use(cors());
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 mongoose.connect(uri, {
   useNewUrlParser: "true",
@@ -88,6 +92,9 @@ mongoose.Query.prototype.exec = async function () {
     : new this.model(doc);
 };
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Running at Port ${port}`);

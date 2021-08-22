@@ -2,7 +2,10 @@ const Listing = require("../Models/listings.model");
 const Seller = require("../Models/sellers.model");
 const router = require("express").Router();
 const redis =require('redis');
-client=redis.createClient();
+const client = redis.createClient({
+  url: process.env.REDIS_URL,
+  password: "QUCxSKxSUmgUX79FW3D2izFqMeFz4LtP",
+});
 router.post("/listing", async (req, res) => {
     const id=req.body.uid;
     const seller = await Seller.findOne({ uid: id }).cache({ expire: 10,key:id });
