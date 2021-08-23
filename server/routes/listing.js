@@ -6,7 +6,7 @@ const client = redis.createClient({
   host: "redis-13137.c51.ap-southeast-2-1.ec2.cloud.redislabs.com",
   port: 13137,
   password: "QUCxSKxSUmgUX79FW3D2izFqMeFz4LtP",
-});s
+});
 router.post("/listing", async (req, res) => {
     const id=req.body.uid;
     const seller = await Seller.findOne({ uid: id }).cache({ expire: 10,key:id });
