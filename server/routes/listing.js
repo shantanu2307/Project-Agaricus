@@ -3,9 +3,9 @@ const Seller = require("../Models/sellers.model");
 const router = require("express").Router();
 const redis =require('redis');
 const client = redis.createClient({
-  host: "redis-13137.c51.ap-southeast-2-1.ec2.cloud.redislabs.com",
-  port: 13137,
-  password: "QUCxSKxSUmgUX79FW3D2izFqMeFz4LtP",
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
 });
 router.post("/listing", async (req, res) => {
     const id=req.body.uid;
