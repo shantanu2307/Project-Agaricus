@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "pm2-runtime start ecosystem.config.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "mongodb": "^4.1.0",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
+    "pm2": "^5.1.1",
     "python-shell": "^3.0.0",
     "redis": "^3.1.2"
   }
