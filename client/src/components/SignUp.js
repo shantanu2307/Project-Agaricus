@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './NavBar.js'
 import './signup.css'
-import Footer from './Footer'
 export default function SignUp() {
   const emailRef = useRef();
   const nameRef = useRef();
@@ -73,6 +72,9 @@ export default function SignUp() {
     }
     setLoading(false);
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>
@@ -205,7 +207,6 @@ export default function SignUp() {
         </Card.Body>
         </div>
       </Card>
-      <Footer />
     </>
   );
 }

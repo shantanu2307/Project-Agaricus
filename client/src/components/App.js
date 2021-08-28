@@ -11,6 +11,7 @@ import LandingPage from "./LandingPage";
 import Seller from "./Seller";
 import Prices from "./Prices";
 import SellerView from "./SellerView";
+import Footer from './Footer'
 function App() {
   return (
     <div className="w-100">
@@ -28,6 +29,7 @@ function App() {
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
+        <Footer />  
       </Router>
     </div>
   );
