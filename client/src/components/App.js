@@ -12,9 +12,31 @@ import Seller from "./Seller";
 import Prices from "./Prices";
 import SellerView from "./SellerView";
 import Footer from './Footer'
-function App() {
+class App extends React.Component {
+  state = {
+    loading: true
+  };
+
+  componentDidMount() {
+    this.fakeRequest().then(() => {
+      const el = document.querySelector(".loader-container");
+      if (el) {
+        el.remove();  // removing the spinner element
+        this.setState({ loading: false }); // showing the app
+      }
+    });
+  }
+
+  fakeRequest = () => {
+    return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  };
+
+  render() {
+    if (this.state.loading) {
+      return null; //app is not ready (fake request is in process)
+    }
   return (
-    <div className="w-100">
+    <div className="App w-100">
       <Router>
         <AuthProvider>
           <Switch>
@@ -29,10 +51,10 @@ function App() {
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>
-        <Footer />  
       </Router>
     </div>
   );
+  }
 }
 
 export default App;

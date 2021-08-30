@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './NavBar.js'
+import Footer from './Footer.js'
 import './signup.css'
 export default function SignUp() {
   const emailRef = useRef();
@@ -77,7 +78,7 @@ export default function SignUp() {
   }, [])
 
   return (
-    <>
+    <div>
       <Navbar></Navbar>
       <Card >
       <div className="card-body2">
@@ -207,6 +208,7 @@ export default function SignUp() {
         </Card.Body>
         </div>
       </Card>
-    </>
+      <Footer/>
+    </div>
   );
 }
