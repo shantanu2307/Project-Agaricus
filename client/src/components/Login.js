@@ -1,10 +1,11 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from './NavBar'
 import { Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import './login.css'
+import Footer from './Footer'
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -36,9 +37,6 @@ export default function Login() {
     }
     setLoading(false);
   }
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   return (
     <>
@@ -85,6 +83,7 @@ export default function Login() {
       </div>
     </div>
     </div>
+    <Footer />
     </>
   );
 }

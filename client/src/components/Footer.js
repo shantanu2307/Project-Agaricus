@@ -1,33 +1,31 @@
 import React from "react";
 import logo from "../assets/3.png"
-import { Link } from "react-router-dom";
-import './Footer.css'
+import './login.css'
 export default function Footer() {
 
   return (
     <div className="footer">
-        <footer class="footer-distributed">
-
-            <div class="footer-right">
-
-                <Link to="/"> <img src={logo} alt="Company Logo" /></Link>
-
+            <div className="footer__logo-box">
+                <img src={logo} alt="Full logo" className="footer__logo logo mr-3" />
             </div>
-
-            <div class="footer-left">
-
-                <p class="footer-links">
-                    <Link to="/">Home</Link>
-                    <Link to="/">About</Link>
-                    <Link to="/signup">SignUp</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/">Contact</Link>
-                </p>
-
-                <p>Agaricus &copy; 2021</p>
+            <div className="row footer-bottom d-flex justify-content-center w-100">
+                <div className="col-1-of-2">
+                    <div className="footer__navigation ">
+                        <ul className="footer__list d-flex flex-row justify-content-center">
+                            <div className="p-2"><li className="footer_item">Company</li></div>
+                            <div className="p-2"><li className="footer_item">Contact us</li></div>
+                            <div className="p-2"><li className="footer_item">Privacy policy</li></div>
+                            <div className="p-2"><li className="footer_item">Terms</li></div>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-1-of-2">
+                    <p className="footer__copyright">
+                        Built by Agaricus Systems Pvt. Ltd
+                        Copyright &copy; by AGARICUS
+                    </p>
+                </div>
             </div>
-
-            </footer>
         </div>
   );
 }
