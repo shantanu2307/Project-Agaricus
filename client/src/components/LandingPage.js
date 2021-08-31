@@ -8,7 +8,6 @@ import stubblenew from '../assets/stubblenew.jpg'
 import lab from '../assets/lab.jpg'
 import collage from '../assets/collage.png'
 import logo from '../assets/2.png'
-import Footer from './Footer'
 import {Jumbotron, Card,Carousel} from 'react-bootstrap'
 import './landing.css'
 export default function LandingPage() {
@@ -118,7 +117,6 @@ export default function LandingPage() {
           </Card.Body>
         </Card>
       </div>
-      <Footer/>
     </div>
   );
 }
