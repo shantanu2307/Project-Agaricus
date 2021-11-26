@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import Navbar from "./SellerNav";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";

@@ -1,20 +1,18 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import Navbar from './NavBar'
 import howlab from '../assets/howlab.jpg'
 import price from '../assets/price.png'
 import stubble2 from '../assets/stubble2.jpg'
+import first from '../assets/first.jpg'
+import Footer from './Footer'
 import stubbleburn from '../assets/stubble-burning.jpg'
 import stubblenew from '../assets/stubblenew.jpg'
 import lab from '../assets/lab.jpg'
 import collage from '../assets/collage.png'
 import logo from '../assets/2.png'
-import Footer from './Footer'
 import {Jumbotron, Card,Carousel} from 'react-bootstrap'
 import './landing.css'
 export default function LandingPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
   return (
     //set photo of background
     <div className="w-100 align-content-center justify-content-center">
@@ -118,7 +116,7 @@ export default function LandingPage() {
           </Card.Body>
         </Card>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
