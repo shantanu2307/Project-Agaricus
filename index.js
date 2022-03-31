@@ -22,7 +22,7 @@ app.use(sellerRoute);
 app.use(listingRoute);
 app.use(marketRoute)
 app.use(cors());
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use(express.static(path.join(__dirname,"build")));
 
 mongoose.connect(uri, {
   useNewUrlParser: "true",
